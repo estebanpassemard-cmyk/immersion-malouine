@@ -7,57 +7,47 @@
     <style>
         body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f4f7f9; }
         
+        /* HEADER HARMONISÉ */
         header { 
             background: #002244; padding: 10px 20px; 
             display: flex; justify-content: space-between; align-items: center;
             position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
             min-height: 90px;
         }
+        .logo img { height: 85px; background: white; padding: 8px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
 
-        .logo img { 
-            height: 85px; width: auto; background: white; 
-            padding: 8px; border-radius: 12px; display: block; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-
-        .burger-menu { cursor: pointer; display: block; z-index: 1001; }
+        .burger-menu { cursor: pointer; z-index: 1001; }
         .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; }
 
         .nav-links {
-            position: fixed; right: -100%; top: 0; 
-            background: #002244; width: 280px; height: 100vh;
-            display: flex; flex-direction: column; padding: 120px 30px;
-            transition: 0.4s ease-in-out; z-index: 999;
+            position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh;
+            display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999;
         }
         .nav-links.active { right: 0; }
         .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
 
-        .container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
-        h1 { color: #002244; text-align: center; margin-bottom: 30px; }
+        /* LAYOUT RÉSERVATION */
+        .container { max-width: 1100px; margin: 120px auto 40px; padding: 20px; }
+        h1 { color: #002244; text-align: center; }
 
-        .reservation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        /* MODULE MARÉES CORRIGÉ */
-        .tides-card { 
-            background: white; padding: 25px; border-radius: 15px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #0044cc;
-            text-align: center;
-        }
-        .tides-card h2 { color: #0044cc; font-size: 1.4em; }
-        .btn-tides {
-            display: block; background: #eef4ff; color: #0044cc; 
-            padding: 20px; text-decoration: none; border-radius: 10px;
-            font-weight: bold; margin-top: 20px; border: 2px dashed #0044cc;
-        }
+        .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 
         /* FORMULAIRE */
-        .form-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        
         .btn-submit { 
-            background: #ffcc00; color: #002244; width: 100%; border: none; 
-            padding: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1.1em;
+            background: #ffcc00; color: #002244; width: 100%; border: none; padding: 15px; 
+            font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1.1em; 
+        }
+
+        /* WIDGET MARÉES */
+        .tide-widget { overflow: hidden; border-radius: 15px; border: 1px solid #ddd; height: 550px; }
+
+        @media (max-width: 850px) {
+            .main-grid { grid-template-columns: 1fr; }
         }
 
         footer { background: #002244; color: white; text-align: center; padding: 30px; margin-top: 40px; }
@@ -66,14 +56,8 @@
 <body>
 
     <header>
-        <div class="logo">
-            <img src="logo-alex.png" alt="IMMERSION MALOUINE">
-        </div>
-        <div class="burger-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="logo"><img src="logo-alex.png" alt="Logo"></div>
+        <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
 
     <nav class="nav-links" id="navLinks">
@@ -81,19 +65,19 @@
         <a href="decouverte.html">Découverte</a>
         <a href="formation.html">Formation</a>
         <a href="exploration.html">Exploration</a>
-        <a href="sans-bouteille.html">Sans Bouteille</a>
         <a href="reservation.html">Réservation / Contact</a>
     </nav>
 
     <div class="container">
-        <h1>Réserver votre séance</h1>
-
-        <div class="reservation-grid">
-            <div class="form-card">
-                <form action="#" method="POST">
+        <h1>Organisez votre Immersion</h1>
+        
+        <div class="main-grid">
+            <div class="card">
+                <h3>Demande de réservation</h3>
+                <form>
                     <div class="form-group">
-                        <label>Nom & Prénom</label>
-                        <input type="text" placeholder="Votre nom" required>
+                        <label>Date souhaitée</label>
+                        <input type="date" id="date-select" onchange="updateInfo()">
                     </div>
                     <div class="form-group">
                         <label>Activité</label>
@@ -104,40 +88,40 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Date souhaitée</label>
-                        <input type="date" required>
+                        <label>Votre Nom</label>
+                        <input type="text" placeholder="Ex: Jean Dujardin">
                     </div>
                     <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="4" placeholder="Précisez le nombre de personnes..."></textarea>
+                        <p id="info-maree" style="background: #eef4ff; padding: 10px; border-radius: 8px; font-size: 0.9em; color: #0044cc;">
+                            💡 Sélectionnez une date pour voir les marées à droite.
+                        </p>
                     </div>
                     <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
                 </form>
             </div>
 
-            <div class="tides-card">
-                <h2>Planifier selon les Marées</h2>
-                <p>Pour la plongée à Saint-Malo, les horaires dépendent de la marée.</p>
-                
-                <a href="https://maree.shom.fr/harbour/SAINT-MALO" target="_blank" class="btn-tides">
-                    🌊 CONSULTER LES MARÉES <br> (Site Officiel SHOM)
-                </a>
-                
-                <p style="font-size: 0.8em; color: #666; margin-top: 20px;">
-                    Le lien s'ouvre dans un nouvel onglet pour vous permettre de vérifier les dates, même dans plusieurs mois.
-                </p>
+            <div class="card">
+                <h3>Marées à Saint-Malo</h3>
+                <div class="tide-widget">
+                    <iframe src="https://www.tideschart.com/fr/France/Bretagne/Ille--et--Vilaine/Saint--Malo/prochaine-maree-widget/" width="100%" height="550" frameborder="0" scrolling="no"></iframe>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
-    </footer>
+    <footer><p>&copy; 2026 Immersion Malouine</p></footer>
 
     <script>
         function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function updateInfo() {
+            const date = document.getElementById('date-select').value;
+            const info = document.getElementById('info-maree');
+            if(date) {
+                info.innerHTML = "✅ Date sélectionnée. Vérifiez l'heure de la pleine mer à droite pour optimiser votre séance !";
+            }
         }
     </script>
 </body>
