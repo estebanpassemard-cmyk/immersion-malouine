@@ -3,72 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservation - Immersion Malouine</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; }
-        header { background: #fff; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo img { height: 70px; width: auto; display: block; }
-        .container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        h1 { color: #004d7a; text-align: center; margin-bottom: 25px; }
-        label { display: block; margin: 15px 0 5px; font-weight: bold; }
-        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
-        .btn-submit { background: #ff7e5f; color: white; border: none; padding: 15px; width: 100%; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 25px; transition: background 0.3s; }
-        .btn-submit:hover { background: #e06d52; }
-        .info { font-size: 0.9em; color: #666; margin-top: 10px; text-align: center; }
-    </style>
+    <title>Réservations - Immersion Malouine</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/logo-alex.png" alt="Logo Immersion Malouine">
-        </a>
-    </div>
-    <nav><a href="index.html" style="text-decoration:none; color:#004d7a; font-weight:bold;">RETOUR ACCUEIL</a></nav>
-</header>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo-alex.png" alt="Logo" style="height: 50px; filter: brightness(0) invert(1);">
+            </div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reservation.html">RÉSERVATION</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container">
-    <h1>Votre Réservation</h1>
-    
-    <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+    <section class="services">
+        <h2>Planifier votre plongée</h2>
+        <p style="text-align:center;">Consultez les marées avant de choisir votre créneau.</p>
         
-        <label for="nom">Nom Complet :</label>
-        <input type="text" id="nom" name="nom" placeholder="Ex: Jean Dupont" required>
+        <div style="background: #f4f4f4; padding: 20px; border-radius: 10px; margin: 20px auto; max-width: 600px; color: #333;">
+            <h3 style="text-align: center;">Horaires des Marées - Saint-Malo</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="border-bottom: 1px solid #ccc;">
+                    <th style="padding: 10px;">Marée</th>
+                    <th style="padding: 10px;">Heure</th>
+                    <th style="padding: 10px;">Hauteur</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">Pleine Mer</td>
+                    <td style="padding: 10px;">08:45</td>
+                    <td style="padding: 10px;">11.20m</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">Basse Mer</td>
+                    <td style="padding: 10px;">15:20</td>
+                    <td style="padding: 10px;">2.10m</td>
+                </tr>
+            </table>
+        </div>
 
-        <label for="tel">Téléphone :</label>
-        <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+        <div style="max-width: 600px; margin: 40px auto; padding: 20px;">
+            <h3>Formulaire de contact</h3>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" placeholder="Votre Nom" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <input type="email" placeholder="Votre Email" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <select style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    <option>Baptême</option>
+                    <option>Exploration</option>
+                    <option>Formation</option>
+                </select>
+                <textarea placeholder="Message (précisez la date souhaitée)" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px;"></textarea>
+                <button type="submit" class="btn" style="background: #0044cc; color: white; border: none; padding: 15px; cursor: pointer; border-radius: 5px;">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
 
-        <label for="horaire">Horaire de plongée (selon marée) :</label>
-        <select id="horaire" name="horaire" required>
-            </select>
-
-        <p class="info">Les horaires sont calculés pour garantir un niveau d'eau suffisant en Rance.</p>
-
-        <button type="submit" class="btn-submit">CONFIRMER LA RÉSERVATION</button>
-    </form>
-</div>
-
-<script>
-    // Configuration d'Alex pour la semaine
-    const horairesMaree = [
-        "Lundi : RDV à 09:30",
-        "Mardi : RDV à 10:15",
-        "Mercredi : RDV à 11:00",
-        "Jeudi : RDV à 11:45",
-        "Vendredi : RDV à 12:30",
-        "Samedi : RDV à 13:15",
-        "Dimanche : RDV à 14:00"
-    ];
-
-    const select = document.getElementById('horaire');
-    horairesMaree.forEach(h => {
-        let option = document.createElement('option');
-        option.value = h;
-        option.textContent = h;
-        select.appendChild(option);
-    });
-</script>
+    <footer>
+        <p>&copy; 2026 Immersion Malouine - Tous droits réservés.</p>
+    </footer>
 
 </body>
 </html>
