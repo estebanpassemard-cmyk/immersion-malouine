@@ -4,82 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservation - Immersion Malouine</title>
-    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* On garde exactement le même style que l'accueil */
-        body { font-family: sans-serif; margin: 0; color: #333; }
-        header { background: #002244; padding: 10px 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        header { background: #002244; padding: 15px 0; color: white; }
         nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: 0 auto; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
         nav a { color: white; text-decoration: none; font-weight: bold; }
-        .content { padding: 50px 20px; max-width: 800px; margin: 0 auto; }
-        .tide-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #eef4ff; }
-        .tide-table th, .tide-table td { border: 1px solid #cce0ff; padding: 12px; text-align: center; }
-        .form-reserva { background: #f9f9f9; padding: 30px; border-radius: 10px; margin-top: 30px; }
-        input, select, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .btn-submit { background: #0044cc; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; font-weight: bold; }
-        footer { background: #f4f4f4; padding: 20px; text-align: center; margin-top: 50px; }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        h1 { color: #002244; text-align: center; }
+        .tide-card { background: #eef4ff; border-left: 5px solid #0044cc; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; border-bottom: 1px solid #cce0ff; text-align: left; }
+        .form-box { background: #f4f4f4; padding: 30px; border-radius: 8px; margin-top: 30px; }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .btn-submit { background: #0044cc; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        .btn-submit:hover { background: #002244; }
     </style>
 </head>
 <body>
-
     <header>
         <nav>
-            <div class="logo">
-                <img src="logo-alex.png" alt="IMMERSION MALOUINE" style="height: 50px; filter: brightness(0) invert(1);">
-            </div>
-            <ul>
+            <div class="logo"><strong>IMMERSION MALOUINE</strong></div>
+            <ul style="display:flex; list-style:none; gap:20px;">
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservation.html">RÉSERVATION</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="content">
-        <h1 style="text-align: center; color: #002244;">Réserver votre plongée</h1>
+    <div class="container">
+        <h1>Réserver votre séance</h1>
         
-        <h3>📅 Horaires des marées (Saint-Malo)</h3>
-        <table class="tide-table">
-            <thead>
-                <tr>
-                    <th>Marée</th>
-                    <th>Heure</th>
-                    <th>Hauteur</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Pleine Mer</td>
-                    <td>08:45</td>
-                    <td>11.20m</td>
-                </tr>
-                <tr>
-                    <td>Basse Mer</td>
-                    <td>15:20</td>
-                    <td>2.10m</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="tide-card">
+            <h3>🌊 Marées du jour - Saint-Malo</h3>
+            <table>
+                <tr><th>Marée</th><th>Heure</th><th>Hauteur</th></tr>
+                <tr><td>Pleine Mer</td><td>08:45</td><td>11.20m</td></tr>
+                <tr><td>Basse Mer</td><td>15:20</td><td>2.10m</td></tr>
+            </table>
+        </div>
 
-        <div class="form-reserva">
-            <h3>Envoyer une demande</h3>
+        <div class="form-box">
+            <h3>Formulaire de demande</h3>
             <form>
-                <input type="text" placeholder="Votre nom complet" required>
+                <input type="text" placeholder="Votre nom" required>
                 <input type="email" placeholder="Votre email" required>
                 <select>
-                    <option>Baptême</option>
-                    <option>Exploration</option>
-                    <option>Formation</option>
+                    <option>Baptême de plongée</option>
+                    <option>Exploration épave</option>
+                    <option>Formation Niveau 1</option>
                 </select>
-                <textarea placeholder="Quelle date et quel créneau vous intéressent ?" rows="4"></textarea>
-                <button type="submit" class="btn-submit">CONFIRMER LA DEMANDE</button>
+                <textarea placeholder="Précisez la date et le nombre de personnes..." rows="4"></textarea>
+                <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
             </form>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Immersion Malouine - Tous droits réservés.</p>
-    </footer>
-
 </body>
 </html>
