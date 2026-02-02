@@ -13,16 +13,16 @@
             background: #002244; padding: 10px 20px; 
             display: flex; justify-content: space-between; align-items: center;
             position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
-            min-height: 85px;
+            min-height: 90px;
         }
 
         .logo img { 
-            height: 90px; width: auto; background: white; 
+            height: 85px; width: auto; background: white; 
             padding: 8px; border-radius: 12px; display: block; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
-        @media (min-width: 1024px) { .logo img { height: 110px; } }
+        @media (min-width: 1024px) { .logo img { height: 105px; } }
 
         /* MENU BURGER */
         .burger-menu { cursor: pointer; display: block; z-index: 1001; }
@@ -38,43 +38,39 @@
         }
         .nav-links.active { right: 0; }
         .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; font-size: 1.2em; }
-        .nav-links a:hover { color: #ffcc00; }
 
-        /* HERO SECTION - Avec la vraie photo de fond */
+        /* HERO SECTION */
         .hero { 
-            height: 80vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://immersion-malouine.com/dev/wp-content/uploads/2023/11/fond-site-plongee.jpg');
+            height: 75vh; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; padding: 0 20px; margin-top: 85px;
+            color: white; text-align: center; padding: 0 20px; margin-top: 90px;
         }
-        .hero h1 { font-size: 3.5em; margin: 0; text-shadow: 3px 3px 10px rgba(0,0,0,0.7); }
-        .hero p { font-size: 1.5em; margin: 15px 0 30px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 3.2em; margin: 0; text-shadow: 3px 3px 10px rgba(0,0,0,0.7); }
+        .hero p { font-size: 1.4em; margin: 15px 0 30px; }
 
         /* SECTION SERVICES */
         .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .services h2 { color: #002244; font-size: 2.5em; margin-bottom: 40px; }
+        .services h2 { color: #002244; font-size: 2.2em; margin-bottom: 40px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         article { 
             background: white; border-radius: 15px; overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.3s;
+            text-align: left;
         }
-        article:hover { transform: translateY(-10px); }
-        
-        /* Images des services */
-        .img-card { height: 200px; width: 100%; object-fit: cover; }
-        .card-content { padding: 25px; }
-        article h3 { color: #0044cc; font-size: 1.6em; margin: 0 0 10px 0; }
-        .price { font-size: 1.5em; font-weight: bold; color: #002244; display: block; margin-top: 15px; }
+        .img-card { height: 220px; width: 100%; object-fit: cover; border-bottom: 4px solid #ffcc00; }
+        .card-content { padding: 20px; }
+        article h3 { color: #002244; margin-top: 0; }
+        .price { font-size: 1.3em; font-weight: bold; color: #0044cc; display: block; margin-top: 10px; }
 
         /* BOUTON */
         .btn-reserver { 
-            background: #ffcc00; color: #002244; padding: 18px 45px; 
-            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2em;
-            transition: 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: #ffcc00; color: #002244; padding: 15px 40px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em;
+            transition: 0.3s; display: inline-block;
         }
-        .btn-reserver:hover { background: #002244; color: white; transform: scale(1.05); }
 
         footer { background: #002244; color: white; text-align: center; padding: 40px; margin-top: 40px; }
     </style>
@@ -93,7 +89,7 @@
     </header>
 
     <nav class="nav-links" id="navLinks">
-        <a href="index.html" onclick="toggleMenu()">Accueil</a>
+        <a href="index.html">Accueil</a>
         <a href="decouverte.html">Découverte</a>
         <a href="formation.html">Formation</a>
         <a href="exploration.html">Exploration</a>
@@ -103,7 +99,7 @@
 
     <section class="hero">
         <h1>IMMERSION MALOUINE</h1>
-        <p>Plongée sous-marine à Saint-Malo</p>
+        <p>Centre de plongée sous-marine à Saint-Malo</p>
         <a href="reservation.html" class="btn-reserver">RÉSERVER UNE SÉANCE</a>
     </section>
 
@@ -111,27 +107,27 @@
         <h2>Nos Activités</h2>
         <div class="grid">
             <article>
-                <img src="https://immersion-malouine.com/dev/wp-content/uploads/2023/11/bapteme-plongee.jpg" class="img-card" alt="Baptême">
+                <img src="https://images.unsplash.com/photo-1583248352195-d3a8e766ede2?q=80&w=800&auto=format&fit=crop" class="img-card" alt="Baptême">
                 <div class="card-content">
                     <h3>Baptêmes</h3>
-                    <p>Découvrez vos premières sensations sous l'eau.</p>
+                    <p>Découvrez vos premières sensations sous l'eau en toute sécurité.</p>
                     <span class="price">60€</span>
                 </div>
             </article>
             <article>
-                <img src="https://immersion-malouine.com/dev/wp-content/uploads/2023/11/exploration-plongee.jpg" class="img-card" alt="Exploration">
+                <img src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?q=80&w=800&auto=format&fit=crop" class="img-card" alt="Exploration">
                 <div class="card-content">
                     <h3>Exploration</h3>
-                    <p>Explorez les épaves et la faune malouine.</p>
+                    <p>Plongez sur les épaves historiques de la cité corsaire.</p>
                     <span class="price">45€</span>
                 </div>
             </article>
             <article>
-                <img src="https://immersion-malouine.com/dev/wp-content/uploads/2023/11/formation-plongee.jpg" class="img-card" alt="Formation">
+                <img src="https://images.unsplash.com/photo-1590515121856-3c723fee275c?q=80&w=800&auto=format&fit=crop" class="img-card" alt="Formation">
                 <div class="card-content">
                     <h3>Formations</h3>
-                    <p>Passez vos niveaux du débutant à l'expert.</p>
-                    <span class="price">Dès 150€</span>
+                    <p>Du passage de vos niveaux à l'autonomie complète.</p>
+                    <span class="price">Sur devis</span>
                 </div>
             </article>
         </div>
@@ -139,7 +135,7 @@
 
     <footer>
         <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
-        <p>Alexandre PASSEMARD - 06 84 57 59 76</p>
+        <p>06 84 57 59 76</p>
     </footer>
 
     <script>
