@@ -3,60 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservation - Immersion Malouine</title>
+    <title>Réservations - Immersion Malouine</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: #333; line-height: 1.6; }
-        header { background: #002244; padding: 15px 0; color: white; }
-        nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: 0 auto; }
-        nav a { color: white; text-decoration: none; font-weight: bold; }
-        .container { max-width: 800px; margin: 40px auto; padding: 20px; }
-        h1 { color: #002244; text-align: center; }
-        .tide-card { background: #eef4ff; border-left: 5px solid #0044cc; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { padding: 12px; border-bottom: 1px solid #cce0ff; text-align: left; }
-        .form-box { background: #f4f4f4; padding: 30px; border-radius: 8px; margin-top: 30px; }
-        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .btn-submit { background: #0044cc; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; font-weight: bold; border-radius: 4px; }
-        .btn-submit:hover { background: #002244; }
+        /* HARMONISATION DESIGN */
+        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f4f7f9; }
+        
+        header { 
+            background: #002244; padding: 10px 20px; 
+            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
+            min-height: 90px;
+        }
+
+        .logo img { 
+            height: 85px; width: auto; background: white; 
+            padding: 8px; border-radius: 12px; display: block; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        /* MENU BURGER */
+        .burger-menu { cursor: pointer; display: block; z-index: 1001; }
+        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; }
+
+        .nav-links {
+            position: fixed; right: -100%; top: 0; 
+            background: #002244; width: 280px; height: 100vh;
+            display: flex; flex-direction: column; padding: 120px 30px;
+            transition: 0.4s ease-in-out; z-index: 999;
+        }
+        .nav-links.active { right: 0; }
+        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
+
+        /* SECTION RÉSERVATION */
+        .container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
+        h1 { color: #002244; text-align: center; margin-bottom: 30px; }
+
+        .reservation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        /* MODULE MARÉES AUTOMATIQUE */
+        .tides-card { 
+            background: white; padding: 20px; border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #0044cc;
+        }
+        .tides-card h2 { color: #0044cc; font-size: 1.2em; margin-top: 0; }
+
+        /* FORMULAIRE */
+        .form-card { 
+            background: white; padding: 25px; border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { 
+            width: 100%; padding: 12px; border: 1px solid #ccc; 
+            border-radius: 8px; box-sizing: border-box; font-size: 16px;
+        }
+        .btn-submit { 
+            background: #ffcc00; color: #002244; width: 100%; border: none; 
+            padding: 15px; font-weight: bold; border-radius: 8px; cursor: pointer;
+            font-size: 1.1em; transition: 0.3s;
+        }
+        .btn-submit:hover { background: #002244; color: white; }
+
+        footer { background: #002244; color: white; text-align: center; padding: 30px; margin-top: 40px; }
     </style>
 </head>
 <body>
+
     <header>
-        <nav>
-            <div class="logo"><strong>IMMERSION MALOUINE</strong></div>
-            <ul style="display:flex; list-style:none; gap:20px;">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservation.html">Réservation</a></li>
-            </ul>
-        </nav>
+        <div class="logo">
+            <img src="logo-alex.png" alt="IMMERSION MALOUINE">
+        </div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Accueil</a>
+        <a href="decouverte.html">Découverte</a>
+        <a href="formation.html">Formation</a>
+        <a href="exploration.html">Exploration</a>
+        <a href="sans-bouteille.html">Sans Bouteille</a>
+        <a href="reservation.html">Réservation / Contact</a>
+    </nav>
 
     <div class="container">
         <h1>Réserver votre séance</h1>
-        
-        <div class="tide-card">
-            <h3>🌊 Marées du jour - Saint-Malo</h3>
-            <table>
-                <tr><th>Marée</th><th>Heure</th><th>Hauteur</th></tr>
-                <tr><td>Pleine Mer</td><td>08:45</td><td>11.20m</td></tr>
-                <tr><td>Basse Mer</td><td>15:20</td><td>2.10m</td></tr>
-            </table>
-        </div>
 
-        <div class="form-box">
-            <h3>Formulaire de demande</h3>
-            <form>
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <select>
-                    <option>Baptême de plongée</option>
-                    <option>Exploration épave</option>
-                    <option>Formation Niveau 1</option>
-                </select>
-                <textarea placeholder="Précisez la date et le nombre de personnes..." rows="4"></textarea>
-                <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
-            </form>
+        <div class="reservation-grid">
+            <div class="form-card">
+                <form action="https://formspree.io/f/VOTRE_ID" method="POST"> <div class="form-group">
+                        <label>Nom & Prénom</label>
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Activité</label>
+                        <select name="activite">
+                            <option>Baptême</option>
+                            <option>Exploration</option>
+                            <option>Formation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date souhaitée</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message / Précisions</label>
+                        <textarea name="message" rows="4" placeholder="Ex: On est 2 personnes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
+                </form>
+            </div>
+
+            <div class="tides-card">
+                <h2>Horaires des Marées (Direct)</h2>
+                <p style="font-size: 0.9em; color: #666;">Consultez les marées pour choisir le meilleur créneau (Saint-Malo) :</p>
+                <iframe src="https://www.maree.info/118/widget?color=002244" width="100%" height="450" frameborder="0" scrolling="no"></iframe>
+                <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Les horaires sont mis à jour automatiquement en temps réel.</p>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
