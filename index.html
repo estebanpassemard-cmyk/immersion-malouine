@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immersion Malouine - Saint-Malo</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; overflow-x: hidden; }
+        /* DESIGN GLOBAL */
+        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; overflow-x: hidden; background-color: #f4f7f9; }
         
         /* HEADER & NAVIGATION */
         header { 
@@ -13,48 +14,73 @@
             display: flex; justify-content: space-between; align-items: center;
             position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
         }
-        .logo img { height: 50px; }
+        .logo img { height: 50px; display: block; }
 
         /* MENU BURGER (Les 3 lignes) */
-        .burger-menu { cursor: pointer; display: block; padding: 10px; }
+        .burger-menu { cursor: pointer; display: block; z-index: 1001; }
         .burger-menu span { 
             display: block; width: 30px; height: 3px; 
             background: white; margin: 6px 0; transition: 0.3s; 
         }
 
-        /* MENU DÉROULANT (Caché par défaut) */
+        /* MENU DÉROULANT */
         .nav-links {
-            position: fixed; right: -100%; top: 70px; 
-            background: #002244; width: 250px; height: 100vh;
-            display: flex; flex-direction: column; padding: 20px;
-            transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            position: fixed; right: -100%; top: 0; 
+            background: #002244; width: 280px; height: 100vh;
+            display: flex; flex-direction: column; padding: 80px 30px;
+            transition: 0.4s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            z-index: 999;
         }
         .nav-links.active { right: 0; }
         .nav-links a { 
             color: white; text-decoration: none; padding: 15px 0; 
-            border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold;
+            border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; font-size: 1.1em;
         }
         .nav-links a:hover { color: #ffcc00; }
 
         /* HERO SECTION */
         .hero { 
-            height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1350&q=80');
+            height: 70vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center;
+            color: white; text-align: center; padding: 0 20px;
+            margin-top: 60px;
         }
-        .hero h1 { font-size: 3em; margin: 0; }
+        .hero h1 { font-size: 3em; margin: 0; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.2em; margin: 15px 0 25px; }
+
+        /* SECTION SERVICES (Contenu de ton ancienne version) */
+        .services { padding: 60px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .services h2 { color: #002244; font-size: 2em; margin-bottom: 40px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        article { 
+            background: white; padding: 30px; border-radius: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: 0.3s;
+            border-top: 5px solid #ffcc00;
+        }
+        article:hover { transform: translateY(-10px); }
+        article h3 { color: #0044cc; font-size: 1.5em; margin-bottom: 15px; }
+        article p { color: #666; font-size: 1em; }
+        .price { font-size: 1.4em; font-weight: bold; color: #002244; display: block; margin-top: 15px; }
+
+        /* BOUTONS */
         .btn-reserver { 
-            margin-top: 30px; background: #ffcc00; color: #002244; 
-            padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold;
+            background: #ffcc00; color: #002244; padding: 15px 35px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; 
+            transition: 0.3s; display: inline-block;
         }
+        .btn-reserver:hover { background: #002244; color: white; }
+
+        footer { background: #002244; color: white; text-align: center; padding: 40px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="logo-alex.png" alt="Logo">
+            <img src="logo-alex.png" alt="IMMERSION MALOUINE">
         </div>
         <div class="burger-menu" onclick="toggleMenu()">
             <span></span>
@@ -64,7 +90,7 @@
     </header>
 
     <nav class="nav-links" id="navLinks">
-        <a href="index.html">Accueil</a>
+        <a href="index.html" onclick="toggleMenu()">Accueil</a>
         <a href="decouverte.html">Découverte</a>
         <a href="formation.html">Formation</a>
         <a href="exploration.html">Exploration</a>
@@ -74,9 +100,35 @@
 
     <section class="hero">
         <h1>IMMERSION MALOUINE</h1>
-        <p>Plongée sous-marine à Saint-Malo</p>
+        <p>Explorez les trésors cachés de Saint-Malo</p>
         <a href="reservation.html" class="btn-reserver">RÉSERVER UNE SÉANCE</a>
     </section>
+
+    <section class="services">
+        <h2>Nos Prestations</h2>
+        <div class="grid">
+            <article>
+                <h3>Baptêmes</h3>
+                <p>Découvrez les premières sensations de la plongée dans un cadre sécurisé.</p>
+                <span class="price">60€</span>
+            </article>
+            <article>
+                <h3>Exploration</h3>
+                <p>Plongez sur les plus belles épaves et récifs de la cité corsaire.</p>
+                <span class="price">45€</span>
+            </article>
+            <article>
+                <h3>Formation</h3>
+                <p>Passez vos niveaux (N1, N2, N3) avec un moniteur passionné.</p>
+                <span class="price">Sur devis</span>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
+        <p>Contact : 06 84 57 59 76</p>
+    </footer>
 
     <script>
         function toggleMenu() {
