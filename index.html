@@ -3,51 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immersion Malouine - Centre de Plongée Saint-Malo</title>
+    <title>Immersion Malouine - Accueil</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Design harmonisé directement ici pour être sûr que ça fonctionne */
+        body { font-family: sans-serif; margin: 0; color: #333; }
+        header { background: #002244; padding: 10px 0; }
+        nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: 0 auto; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        .hero { background: #0044cc; color: white; padding: 100px 20px; text-align: center; }
+        .btn { background: #ffcc00; color: #002244; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 20px; }
+        .services { padding: 50px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        article { border: 1px solid #eee; padding: 20px; border-radius: 10px; }
+        footer { background: #f4f4f4; padding: 20px; text-align: center; font-size: 0.9em; }
+    </style>
 </head>
 <body>
 
     <header>
         <nav>
             <div class="logo">
-                <img src="logo-alex.png" alt="Logo Immersion Malouine" style="height: 50px; filter: brightness(0) invert(1);">
+                <img src="logo-alex.png" alt="IMMERSION MALOUINE" style="height: 50px; filter: brightness(0) invert(1);">
             </div>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="#decouverte">Découverte</a></li>
                 <li><a href="reservation.html">RÉSERVATION</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Plongez au cœur de l'histoire</h1>
-            <p>Découvrez les fonds marins de Saint-Malo avec une équipe de passionnés.</p>
-            <a href="reservation.html" class="btn">Réserver une séance</a>
-        </div>
+        <h1>Plongez au cœur de l'histoire</h1>
+        <p>Découvrez les fonds marins de Saint-Malo avec une équipe de passionnés.</p>
+        <a href="reservation.html" class="btn">RÉSERVER UNE SÉANCE</a>
     </section>
 
-    <section id="decouverte" class="services">
-        <h2>Nos Baptêmes & Découvertes</h2>
+    <section class="services">
+        <h2>Nos Prestations</h2>
         <div class="grid">
             <article>
-                <h3>Baptême de Plongée</h3>
-                <p>Une première immersion en douceur pour découvrir les sensations de l'apesanteur.</p>
-                <span>À partir de 60€</span>
+                <h3>Baptêmes</h3>
+                <p>Une première immersion en douceur.</p>
+                <strong>À partir de 60€</strong>
             </article>
             <article>
-                <h3>Pack Découverte</h3>
-                <p>3 plongées pour apprendre les bases et commencer à explorer en autonomie surveillée.</p>
-                <span>À partir de 150€</span>
+                <h3>Explorations</h3>
+                <p>Découvrez les épaves de la baie.</p>
+                <strong>À partir de 45€</strong>
             </article>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Immersion Malouine - Tous droits réservés.</p>
-        <p>Contact : contact@immersion-malouine.com | Tel : 06 84 57 59 76</p>
+        <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
     </footer>
 
 </body>
