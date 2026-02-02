@@ -14,7 +14,17 @@
             display: flex; justify-content: space-between; align-items: center;
             position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
         }
-        .logo img { height: 50px; display: block; }
+
+        /* STYLE DU LOGO (Cadre blanc propre) */
+        .logo img { 
+            height: 55px; 
+            background: white; 
+            padding: 6px; 
+            border-radius: 10px; 
+            display: block; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #ddd;
+        }
 
         /* MENU BURGER (Les 3 lignes) */
         .burger-menu { cursor: pointer; display: block; z-index: 1001; }
@@ -50,7 +60,7 @@
         .hero h1 { font-size: 3em; margin: 0; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
         .hero p { font-size: 1.2em; margin: 15px 0 25px; }
 
-        /* SECTION SERVICES (Contenu de ton ancienne version) */
+        /* SECTION SERVICES */
         .services { padding: 60px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
         .services h2 { color: #002244; font-size: 2em; margin-bottom: 40px; }
         
