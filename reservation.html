@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservations - Immersion Malouine</title>
     <style>
-        /* HARMONISATION DESIGN */
         body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f4f7f9; }
         
         header { 
@@ -21,7 +20,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
-        /* MENU BURGER */
         .burger-menu { cursor: pointer; display: block; z-index: 1001; }
         .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; }
 
@@ -34,36 +32,33 @@
         .nav-links.active { right: 0; }
         .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
 
-        /* SECTION RÉSERVATION */
         .container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
         h1 { color: #002244; text-align: center; margin-bottom: 30px; }
 
         .reservation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        /* MODULE MARÉES AUTOMATIQUE */
+        /* MODULE MARÉES CORRIGÉ */
         .tides-card { 
-            background: white; padding: 20px; border-radius: 15px; 
+            background: white; padding: 25px; border-radius: 15px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #0044cc;
+            text-align: center;
         }
-        .tides-card h2 { color: #0044cc; font-size: 1.2em; margin-top: 0; }
+        .tides-card h2 { color: #0044cc; font-size: 1.4em; }
+        .btn-tides {
+            display: block; background: #eef4ff; color: #0044cc; 
+            padding: 20px; text-decoration: none; border-radius: 10px;
+            font-weight: bold; margin-top: 20px; border: 2px dashed #0044cc;
+        }
 
         /* FORMULAIRE */
-        .form-card { 
-            background: white; padding: 25px; border-radius: 15px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        .form-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select, textarea { 
-            width: 100%; padding: 12px; border: 1px solid #ccc; 
-            border-radius: 8px; box-sizing: border-box; font-size: 16px;
-        }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
         .btn-submit { 
             background: #ffcc00; color: #002244; width: 100%; border: none; 
-            padding: 15px; font-weight: bold; border-radius: 8px; cursor: pointer;
-            font-size: 1.1em; transition: 0.3s;
+            padding: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1.1em;
         }
-        .btn-submit:hover { background: #002244; color: white; }
 
         footer { background: #002244; color: white; text-align: center; padding: 30px; margin-top: 40px; }
     </style>
@@ -95,13 +90,14 @@
 
         <div class="reservation-grid">
             <div class="form-card">
-                <form action="https://formspree.io/f/VOTRE_ID" method="POST"> <div class="form-group">
+                <form action="#" method="POST">
+                    <div class="form-group">
                         <label>Nom & Prénom</label>
-                        <input type="text" name="nom" placeholder="Votre nom" required>
+                        <input type="text" placeholder="Votre nom" required>
                     </div>
                     <div class="form-group">
                         <label>Activité</label>
-                        <select name="activite">
+                        <select>
                             <option>Baptême</option>
                             <option>Exploration</option>
                             <option>Formation</option>
@@ -109,21 +105,27 @@
                     </div>
                     <div class="form-group">
                         <label>Date souhaitée</label>
-                        <input type="date" name="date" required>
+                        <input type="date" required>
                     </div>
                     <div class="form-group">
-                        <label>Message / Précisions</label>
-                        <textarea name="message" rows="4" placeholder="Ex: On est 2 personnes..."></textarea>
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Précisez le nombre de personnes..."></textarea>
                     </div>
                     <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
                 </form>
             </div>
 
             <div class="tides-card">
-                <h2>Horaires des Marées (Direct)</h2>
-                <p style="font-size: 0.9em; color: #666;">Consultez les marées pour choisir le meilleur créneau (Saint-Malo) :</p>
-                <iframe src="https://www.maree.info/118/widget?color=002244" width="100%" height="450" frameborder="0" scrolling="no"></iframe>
-                <p style="font-size: 0.8em; color: #999; margin-top: 10px;">Les horaires sont mis à jour automatiquement en temps réel.</p>
+                <h2>Planifier selon les Marées</h2>
+                <p>Pour la plongée à Saint-Malo, les horaires dépendent de la marée.</p>
+                
+                <a href="https://maree.shom.fr/harbour/SAINT-MALO" target="_blank" class="btn-tides">
+                    🌊 CONSULTER LES MARÉES <br> (Site Officiel SHOM)
+                </a>
+                
+                <p style="font-size: 0.8em; color: #666; margin-top: 20px;">
+                    Le lien s'ouvre dans un nouvel onglet pour vous permettre de vérifier les dates, même dans plusieurs mois.
+                </p>
             </div>
         </div>
     </div>
