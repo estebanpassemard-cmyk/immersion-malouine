@@ -5,51 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Découverte - Immersion Malouine</title>
     <style>
-        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f4f7f9; }
+        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: white; }
         
-        /* HEADER & MENU (Identique sur tout le site) */
-        header { 
-            background: #002244; padding: 10px 20px; 
-            display: flex; justify-content: space-between; align-items: center;
-            position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
-            min-height: 90px;
+        /* FOND IMMERSIF */
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            min-height: 100vh; width: 100%; position: absolute; top: 0; z-index: -1;
         }
-        .logo img { height: 75px; width: auto; background: white; padding: 5px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
+        header { background: #002244; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; min-height: 90px; }
+        .logo img { height: 75px; background: white; padding: 5px; border-radius: 10px; }
         .burger-menu { cursor: pointer; z-index: 1001; }
-        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; transition: 0.3s; }
-
-        .nav-links {
-            position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh;
-            display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s ease-in-out; z-index: 999;
-        }
-        .nav-links.active { right: 0; }
-        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; font-size: 1.2em; }
-
-        /* CONTENU */
-        .content { margin-top: 120px; padding: 20px; max-width: 900px; margin-left: auto; margin-right: auto; }
-        h1 { color: #002244; text-align: center; }
-        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px; line-height: 1.6; }
+        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; }
         
-        .btn-page { 
-            display: inline-block; background: #ffcc00; color: #002244; padding: 12px 25px; 
-            text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; 
-            transition: 0.3s;
-        }
-        .btn-page:hover { background: #002244; color: white; }
+        .nav-links { position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999; }
+        .nav-links.active { right: 0; }
+        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
 
-        footer { background: #002244; color: white; text-align: center; padding: 30px; margin-top: 40px; }
+        .content { margin-top: 140px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; }
+        .card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); line-height: 1.6; }
+        .btn-page { display: inline-block; background: #ffcc00; color: #002244; padding: 15px 30px; text-decoration: none; border-radius: 10px; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
-
+    <div class="hero-bg"></div>
     <header>
         <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
-        <div class="burger-menu" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
-
     <nav class="nav-links" id="navLinks">
         <a href="index.html">Accueil</a>
         <a href="decouverte.html">Découverte</a>
@@ -58,35 +43,14 @@
         <a href="sans-bouteille.html">Sans Bouteille</a>
         <a href="reservation.html">Réservation</a>
     </nav>
-
     <div class="content">
-        <h1>Découverte : Vos premiers pas</h1>
-        
+        <h1>Découverte</h1>
         <div class="card">
             <h3>Le Baptême de plongée</h3>
-            <p>Le baptême est la porte d’entrée vers un nouveau monde. Accompagné individuellement par un moniteur passionné, vous découvrirez la sensation unique de respirer sous l'eau en toute sécurité dans la baie de Saint-Malo.</p>
-            <ul>
-                <li><strong>Durée :</strong> Environ 2h au total (dont 20-30 min sous l'eau).</li>
-                <li><strong>Équipement :</strong> Tout est fourni (combinaison, palmes, masque, bouteille).</li>
-                <li><strong>Condition :</strong> Accessible à tous dès 8 ans, aucun certificat médical requis pour le baptême.</li>
-            </ul>
+            <p>Découvrez la sensation unique de respirer sous l'eau dans la baie de Saint-Malo. Un moment magique, accessible à tous.</p>
             <a href="reservation.html" class="btn-page">Réserver mon baptême</a>
         </div>
-
-        <div class="card">
-            <h3>Pack Découverte</h3>
-            <p>Vous avez adoré votre baptême ? Prolongez l'expérience avec un pack de 3 plongées pour commencer à apprendre les premiers gestes techniques sans le stress d'un examen.</p>
-        </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-    </script>
+    <script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
 </body>
 </html>
