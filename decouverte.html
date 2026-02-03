@@ -4,53 +4,34 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Découverte - Immersion Malouine</title>
     <style>
-        :root { --primary: #002244; --accent: #ffcc00; }
-        body { margin: 0; color: white; background: var(--primary); font-family: sans-serif; }
-        
-        /* PHOTO DE FOND POUR LES PAGES INTERNES */
-        .hero-bg { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; 
+        :root { --blue: #002244; --yellow: #ffcc00; }
+        body { margin: 0; color: white; font-family: sans-serif; background: var(--blue); }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544551763-77ef2d0ca3a2?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh;
         }
-
-        header { background: var(--primary); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; height: 90px; }
-        .logo img { height: 70px; background: white; padding: 5px; border-radius: 8px; }
-        .burger-menu { cursor: pointer; z-index: 1001; }
-        .burger-menu span { display: block; width: 30px; height: 3px; background: white; margin: 6px 0; }
-        .nav-links { position: fixed; right: -100%; top: 0; background: var(--primary); width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999; }
-        .nav-links.active { right: 0; }
-        .nav-links a { color: white; text-decoration: none; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-
-        .content { margin-top: 160px; padding: 20px; text-align: center; }
-        .info-card { 
-            background: rgba(0, 34, 68, 0.85); backdrop-filter: blur(15px); 
-            padding: 50px; border-radius: 30px; max-width: 800px; margin: auto; 
-            border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        h1 { color: var(--accent); font-size: 2.5rem; }
-        p { font-size: 1.2rem; line-height: 1.6; margin: 25px 0; }
-        .btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 15px 35px; text-decoration: none; border-radius: 10px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: white; transform: translateY(-3px); }
+        header { background: var(--blue); height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; }
+        .logo img { height: 60px; background: white; padding: 5px; border-radius: 5px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
+        .container { padding-top: 150px; display: flex; justify-content: center; }
+        .card { background: rgba(0,34,68,0.85); padding: 50px; border-radius: 20px; max-width: 800px; border: 1px solid rgba(255,255,255,0.2); text-align: center; }
+        h1 { color: var(--yellow); font-size: 2.5rem; }
+        .btn { display: inline-block; background: var(--yellow); color: var(--blue); padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; margin-top: 30px; }
     </style>
 </head>
 <body>
-    <div class="hero-bg"></div>
-    <header>
-        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
-        <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    </header>
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html">Accueil</a><a href="decouverte.html">Découverte</a><a href="formation.html">Formation</a><a href="exploration.html">Exploration</a><a href="sans-bouteille.html">Sans Bouteille</a><a href="reservation.html">Réservation</a>
-    </nav>
-    <div class="content">
-        <div class="info-card">
-            <h1>Découverte</h1>
-            <p>Le baptême est votre première porte d'entrée vers le monde du silence. Encadré par Alex, vous découvrirez les sensations uniques de la respiration sous l'eau dans les eaux calmes de la côte d'Émeraude.</p>
-            <a href="reservation.html" class="btn">Réserver mon baptême</a>
+    <div class="hero">
+        <header>
+            <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
+            <nav class="nav-links"><a href="index.html">Accueil</a><a href="reservation.html">Réservation</a></nav>
+        </header>
+        <div class="container">
+            <div class="card">
+                <h1>Découverte</h1>
+                <p>Découvrez la magie du monde sous-marin. Pour une première fois ou une initiation en douceur, nos baptêmes sont encadrés par des professionnels passionnés.</p>
+                <a href="reservation.html" class="btn">Réserver maintenant</a>
+            </div>
         </div>
     </div>
-    <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}</script>
 </body>
 </html>
