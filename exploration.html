@@ -3,27 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page en construction - Immersion Malouine</title>
+    <title>Exploration - Immersion Malouine</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; text-align: center; }
-        header { background: #002244; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: bold; }
-        .content { padding: 100px 20px; }
-        .btn-home { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #0044cc; color: white; text-decoration: none; border-radius: 5px; }
+        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f4f7f9; }
+        header { background: #002244; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; min-height: 90px; }
+        .logo img { height: 75px; width: auto; background: white; padding: 5px; border-radius: 10px; }
+        .burger-menu { cursor: pointer; z-index: 1001; }
+        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; transition: 0.3s; }
+        .nav-links { position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s ease-in-out; z-index: 999; }
+        .nav-links.active { right: 0; }
+        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; font-size: 1.2em; }
+        .content { margin-top: 120px; padding: 20px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        h1 { color: #002244; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px; line-height: 1.6; }
+        .btn-page { display: inline-block; background: #ffcc00; color: #002244; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; }
+        footer { background: #002244; color: white; text-align: center; padding: 30px; margin-top: 40px; }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo">IMMERSION MALOUINE</div>
-        <a href="index.html" style="color: white; text-decoration: none; font-size: 0.9em;">← Retour Accueil</a>
+        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
+        <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
-
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Accueil</a>
+        <a href="decouverte.html">Découverte</a>
+        <a href="formation.html">Formation</a>
+        <a href="exploration.html">Exploration</a>
+        <a href="sans-bouteille.html">Sans Bouteille</a>
+        <a href="reservation.html">Réservation</a>
+    </nav>
     <div class="content">
-        <h1 style="color: #002244;">Page en cours de rédaction</h1>
-        <p>Alex pourra bientôt remplir cette section (photos, tarifs, descriptions).</p>
-        <a href="index.html" class="btn-home">RETOUR À L'ACCUEIL</a>
+        <h1>Exploration : Épaves & Faune</h1>
+        <div class="card">
+            <h3>Plongées sur épaves corsaires</h3>
+            <p>Saint-Malo regorge de trésors engloutis. Pour les plongeurs certifiés (Niveau 1 minimum), nous organisons des sorties sur les plus belles épaves de la région.</p>
+            <p><strong>Nos spots favoris :</strong> Le Fetlar, le M-460, ou les roches des Haies de Conchée.</p>
+            <a href="reservation.html" class="btn-page">Voir les disponibilités</a>
+        </div>
     </div>
-
+    <footer><p>&copy; 2026 Immersion Malouine</p></footer>
+    <script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
 </body>
 </html>
