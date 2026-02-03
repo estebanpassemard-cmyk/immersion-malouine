@@ -5,52 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immersion Malouine - Accueil</title>
     <style>
-        body { margin: 0; padding: 0; color: white; background-color: #002244; font-family: 'Segoe UI', Arial, sans-serif; }
+        :root { --primary: #002244; --accent: #ffcc00; }
+        body { margin: 0; padding: 0; color: white; background-color: var(--primary); font-family: 'Segoe UI', Roboto, sans-serif; overflow-x: hidden; }
+        
+        /* IMAGE DE FOND FIXE */
         .hero-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(rgba(0,34,68,0.5), rgba(0,34,68,0.5)), 
                         url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
             background-size: cover; background-position: center; z-index: -1;
         }
-        header { background: #002244; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; height: 90px; }
+
+        header { background: var(--primary); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; height: 90px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .logo img { height: 70px; background: white; padding: 5px; border-radius: 8px; }
-        .burger-menu { cursor: pointer; z-index: 1001; }
+        
+        .burger-menu { cursor: pointer; z-index: 1001; padding: 10px; }
         .burger-menu span { display: block; width: 30px; height: 3px; background: white; margin: 6px 0; transition: 0.3s; }
-        .nav-links { position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999; }
+        
+        .nav-links { position: fixed; right: -100%; top: 0; background: var(--primary); width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999; }
         .nav-links.active { right: 0; }
         .nav-links a { color: white; text-decoration: none; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
-        .content { margin-top: 120px; padding: 40px 20px; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
+
+        .content { margin-top: 140px; padding: 20px; text-align: center; }
+        h1 { font-size: 3rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 10px; }
+        .tagline { font-size: 1.5rem; margin-bottom: 50px; opacity: 0.9; }
+
+        /* GRILLE DE CARTES (Le design que vous vouliez) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
         .card { 
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); 
-            padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);
-            text-decoration: none; color: white; transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); 
+            padding: 40px 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
+            text-decoration: none; color: white; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; flex-direction: column; align-items: center;
         }
-        .card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.2); border-color: #ffcc00; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .card h3 { color: #ffcc00; margin-top: 0; }
-        .btn-reserver { display: inline-block; background: #ffcc00; color: #002244; padding: 15px 40px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 1.1em; margin-top: 20px; transition: 0.3s; }
-        .btn-reserver:hover { background: white; transform: scale(1.05); }
+
+        .card:hover { 
+            transform: translateY(-15px); 
+            background: rgba(255, 255, 255, 0.2); 
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .card h3 { color: var(--accent); font-size: 1.6rem; margin-bottom: 15px; }
+        .card p { font-size: 1rem; line-height: 1.5; opacity: 0.9; }
+
+        .btn-main { display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; margin-top: 40px; transition: 0.3s; }
+        .btn-main:hover { background: white; transform: scale(1.05); }
     </style>
 </head>
 <body>
     <div class="hero-bg"></div>
     <header>
-        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
+        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo Immersion Malouine"></a></div>
         <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
     <nav class="nav-links" id="navLinks">
-        <a href="index.html">Accueil</a><a href="decouverte.html">Découverte</a><a href="formation.html">Formation</a><a href="exploration.html">Exploration</a><a href="sans-bouteille.html">Sans Bouteille</a><a href="reservation.html">Réservation</a>
+        <a href="index.html">Accueil</a>
+        <a href="decouverte.html">Découverte</a>
+        <a href="formation.html">Formation</a>
+        <a href="exploration.html">Exploration</a>
+        <a href="sans-bouteille.html">Sans Bouteille</a>
+        <a href="reservation.html">Réservation</a>
     </nav>
     <div class="content">
         <h1>Immersion Malouine</h1>
-        <p>Explorez la Baie de Saint-Malo avec Alex</p>
+        <p class="tagline">Votre école de plongée itinérante à Saint-Malo</p>
         <div class="grid">
-            <a href="decouverte.html" class="card"><h3>Découverte</h3><p>Baptêmes et premières bulles pour tous.</p></a>
-            <a href="formation.html" class="card"><h3>Formation</h3><p>Passez vos niveaux FFESSM et ANMP.</p></a>
-            <a href="exploration.html" class="card"><h3>Exploration</h3><p>Épaves et faune de la Côte d'Émeraude.</p></a>
-            <a href="sans-bouteille.html" class="card"><h3>Sans Bouteille</h3><p>Apnée et randonnée palmée.</p></a>
+            <a href="decouverte.html" class="card"><h3>Découverte</h3><p>Baptêmes et premières bulles pour s'émerveiller.</p></a>
+            <a href="formation.html" class="card"><h3>Formation</h3><p>Devenez un plongeur certifié et autonome.</p></a>
+            <a href="exploration.html" class="card"><h3>Exploration</h3><p>Plongez sur les épaves corsaires historiques.</p></a>
+            <a href="sans-bouteille.html" class="card"><h3>Sans Bouteille</h3><p>Apnée et snorkeling en pleine liberté.</p></a>
         </div>
-        <a href="reservation.html" class="btn-reserver">Réserver une sortie</a>
+        <a href="reservation.html" class="btn-main">Prendre rendez-vous</a>
     </div>
     <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}</script>
 </body>
