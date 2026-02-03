@@ -5,80 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immersion Malouine - Accueil</title>
     <style>
-        :root { --primary: #002244; --accent: #ffcc00; }
-        body { margin: 0; padding: 0; color: white; background-color: var(--primary); font-family: 'Segoe UI', Roboto, sans-serif; overflow-x: hidden; }
-        
-        /* IMAGE DE FOND FIXE */
-        .hero-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,34,68,0.5), rgba(0,34,68,0.5)), 
-                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; z-index: -1;
+        :root { --blue: #002244; --yellow: #ffcc00; }
+        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; color: white; height: 100%; }
+
+        /* FOND D'ÉCRAN IMMERSIF (Comme sur le site original) */
+        .hero {
+            background: linear-gradient(rgba(0, 34, 68, 0.5), rgba(0, 34, 68, 0.5)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            min-height: 100vh; display: flex; flex-direction: column;
         }
 
-        header { background: var(--primary); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; height: 90px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .logo img { height: 70px; background: white; padding: 5px; border-radius: 8px; }
+        /* HEADER */
+        header { background: var(--blue); height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; }
+        .logo img { height: 60px; background: white; padding: 5px; border-radius: 5px; }
         
-        .burger-menu { cursor: pointer; z-index: 1001; padding: 10px; }
-        .burger-menu span { display: block; width: 30px; height: 3px; background: white; margin: 6px 0; transition: 0.3s; }
-        
-        .nav-links { position: fixed; right: -100%; top: 0; background: var(--primary); width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999; }
-        .nav-links.active { right: 0; }
-        .nav-links a { color: white; text-decoration: none; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
+        /* NAVIGATION */
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .burger { display: none; cursor: pointer; }
+        .burger div { width: 25px; height: 3px; background: white; margin: 5px; }
 
-        .content { margin-top: 140px; padding: 20px; text-align: center; }
-        h1 { font-size: 3rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 10px; }
-        .tagline { font-size: 1.5rem; margin-bottom: 50px; opacity: 0.9; }
+        /* CONTENU CENTRAL */
+        .main-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 100px; }
+        h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; }
 
-        /* GRILLE DE CARTES (Le design que vous vouliez) */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        .card { 
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); 
-            padding: 40px 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
-            text-decoration: none; color: white; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex; flex-direction: column; align-items: center;
+        /* GRILLE DE SERVICES (Cartes interactives) */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 90%; max-width: 1200px; margin-bottom: 50px; }
+        .service-card { 
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);
+            padding: 30px; border-radius: 15px; text-decoration: none; color: white; transition: 0.3s;
         }
+        .service-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.2); border-color: var(--yellow); }
+        .service-card h3 { color: var(--yellow); margin-bottom: 15px; }
 
-        .card:hover { 
-            transform: translateY(-15px); 
-            background: rgba(255, 255, 255, 0.2); 
-            border-color: var(--accent);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; right: 0; top: 90px; background: var(--blue); width: 100%; flex-direction: column; text-align: center; padding: 20px 0; }
+            .nav-links.active { display: flex; }
+            .burger { display: block; }
+            h1 { font-size: 2.5rem; }
         }
-
-        .card h3 { color: var(--accent); font-size: 1.6rem; margin-bottom: 15px; }
-        .card p { font-size: 1rem; line-height: 1.5; opacity: 0.9; }
-
-        .btn-main { display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; margin-top: 40px; transition: 0.3s; }
-        .btn-main:hover { background: white; transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <div class="hero-bg"></div>
-    <header>
-        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo Immersion Malouine"></a></div>
-        <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    </header>
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html">Accueil</a>
-        <a href="decouverte.html">Découverte</a>
-        <a href="formation.html">Formation</a>
-        <a href="exploration.html">Exploration</a>
-        <a href="sans-bouteille.html">Sans Bouteille</a>
-        <a href="reservation.html">Réservation</a>
-    </nav>
-    <div class="content">
-        <h1>Immersion Malouine</h1>
-        <p class="tagline">Votre école de plongée itinérante à Saint-Malo</p>
-        <div class="grid">
-            <a href="decouverte.html" class="card"><h3>Découverte</h3><p>Baptêmes et premières bulles pour s'émerveiller.</p></a>
-            <a href="formation.html" class="card"><h3>Formation</h3><p>Devenez un plongeur certifié et autonome.</p></a>
-            <a href="exploration.html" class="card"><h3>Exploration</h3><p>Plongez sur les épaves corsaires historiques.</p></a>
-            <a href="sans-bouteille.html" class="card"><h3>Sans Bouteille</h3><p>Apnée et snorkeling en pleine liberté.</p></a>
+    <div class="hero">
+        <header>
+            <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
+            <nav class="nav-links" id="menu">
+                <a href="index.html">Accueil</a>
+                <a href="decouverte.html">Découverte</a>
+                <a href="formation.html">Formation</a>
+                <a href="exploration.html">Exploration</a>
+                <a href="sans-bouteille.html">Sans Bouteille</a>
+                <a href="reservation.html">Réservation</a>
+            </nav>
+            <div class="burger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+        </header>
+
+        <div class="main-content">
+            <h1>Immersion Malouine</h1>
+            <p class="subtitle">Plongée en Rance & baie de Saint-Malo. Baptêmes, formations et explorations au cœur de fonds marins uniques.</p>
+            
+            <div class="services-grid">
+                <a href="decouverte.html" class="service-card"><h3>Découverte</h3><p>Vivez votre premier souffle sous l'eau.</p></a>
+                <a href="formation.html" class="service-card"><h3>Formation</h3><p>Passez vos niveaux N1, N2 ou N3.</p></a>
+                <a href="exploration.html" class="service-card"><h3>Exploration</h3><p>Épaves et faune de la côte d'Émeraude.</p></a>
+                <a href="sans-bouteille.html" class="service-card"><h3>Sans Bouteille</h3><p>Apnée et randonnée palmée.</p></a>
+            </div>
         </div>
-        <a href="reservation.html" class="btn-main">Prendre rendez-vous</a>
     </div>
-    <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}</script>
+
+    <script>
+        function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
+    </script>
 </body>
 </html>
