@@ -1,103 +1,120 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immersion Malouine | Plongée Saint-Malo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Immersion Malouine – École de plongée Saint-Malo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
     <style>
-        :root { --blue: #002244; --yellow: #ffcc00; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--blue); color: white; line-height: 1.6; }
+        /* RESET TOTAL POUR COLLER AU MODÈLE */
+        body, html { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; color: #ffffff; background-color: #002244; }
+        *, ::after, ::before { box-sizing: inherit; }
 
-        /* HEADER DYNAMIQUE */
+        /* HEADER & TOP BAR */
+        .top-bar { background-color: #001a35; padding: 10px 50px; display: flex; justify-content: flex-end; font-size: 13px; font-weight: 300; }
+        .top-bar span { margin-left: 20px; }
+
         header {
-            position: fixed; top: 0; width: 100%; height: 100px;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 50px; z-index: 1000;
-            transition: background 0.5s ease;
-            background: rgba(0, 34, 68, 0.8); /* Semi-transparent comme l'original */
+            background-color: #002244;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
         }
-        header.scrolled { background: rgba(0, 34, 68, 1); height: 80px; }
+        .logo img { height: 75px; background: #fff; padding: 5px; border-radius: 2px; }
 
-        .logo img { height: 70px; background: white; padding: 5px; border-radius: 5px; transition: 0.3s; }
-        header.scrolled .logo img { height: 60px; }
-
-        nav ul { display: flex; list-style: none; gap: 30px; }
+        /* NAVIGATION ORIGINALE */
+        nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin-left: 30px; }
         nav ul li a { 
-            color: white; text-decoration: none; font-weight: 600; 
-            text-transform: uppercase; font-size: 14px; letter-spacing: 1px;
+            text-decoration: none; color: #ffffff; font-size: 14px; 
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            transition: color 0.3s;
         }
-        nav ul li a:hover { color: var(--yellow); }
+        nav ul li a:hover { color: #ffcc00; }
+        .btn-reserve { background-color: #ffcc00; color: #002244 !important; padding: 12px 25px; border-radius: 5px; }
 
-        /* SECTION VIDÉO HERO */
-        .hero {
-            position: relative; height: 100vh; width: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; overflow: hidden;
+        /* HERO SECTION AVEC VIDÉO */
+        .elementor-hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 34, 68, 0.4); }
 
-        #bg-video {
-            position: absolute; top: 50%; left: 50%;
-            min-width: 100%; min-height: 100%;
-            width: auto; height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            object-fit: cover;
-        }
+        .hero-content { text-align: center; z-index: 1; }
+        .hero-content h1 { font-size: 70px; font-weight: 800; text-transform: uppercase; margin: 0; line-height: 1; }
+        .hero-content p { font-size: 24px; font-weight: 300; margin-top: 10px; }
 
-        .overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 34, 68, 0.3); /* Filtre bleu léger */
-            z-index: 0;
+        /* SECTION SERVICES - LE GRAPHIQUE EXACT */
+        .section-services {
+            background-color: #ffffff;
+            padding: 0 0 80px 0;
+            margin-top: -100px; /* Effet de chevauchement du site original */
+            position: relative;
+            z-index: 10;
         }
-
-        .hero-content { z-index: 1; max-width: 900px; padding: 0 20px; }
-        .hero-content h1 { font-size: 5rem; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
-        .hero-content p { font-size: 1.5rem; font-weight: 300; margin-bottom: 30px; letter-spacing: 1px; }
-
-        /* SECTION SERVICES (CARTES) */
-        .services-section {
-            background: white; padding: 100px 50px;
-            display: flex; justify-content: center;
+        .container-cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 0 20px;
         }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 20px; width: 100%; max-width: 1200px;
+        .card {
+            background: #002244;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: #fff;
         }
-        .service-card {
-            background: var(--blue); padding: 50px 20px;
-            text-align: center; border-radius: 10px;
-            text-decoration: none; color: white;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-        .service-card:hover { transform: translateY(-10px); background: #003366; }
-        .service-card h3 { color: var(--yellow); margin-bottom: 15px; text-transform: uppercase; }
-        .service-card p { font-size: 0.9rem; opacity: 0.9; }
+        .card:hover { transform: translateY(-15px); background-color: #003366; }
+        .card h3 { color: #ffcc00; font-size: 18px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700; }
+        .card p { font-size: 14px; font-weight: 300; line-height: 1.6; margin: 0; }
 
         /* BURGER MENU MOBILE */
-        .burger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
-        .burger span { width: 30px; height: 3px; background: white; }
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+        .menu-toggle span { width: 30px; height: 3px; background: #fff; margin: 4px 0; }
 
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-content h1 { font-size: 3rem; }
+            .container-cards { grid-template-columns: repeat(2, 1fr); margin-top: 20px; }
+            .hero-content h1 { font-size: 45px; }
+            .section-services { margin-top: 0; padding-top: 50px; }
         }
         @media (max-width: 768px) {
             header { padding: 0 20px; }
             nav { display: none; }
-            .burger { display: flex; }
-            .services-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.5rem; }
+            .menu-toggle { display: flex; }
+            .container-cards { grid-template-columns: 1fr; }
+            .elementor-hero { height: 60vh; }
         }
     </style>
 </head>
 <body>
 
-    <header id="main-header">
+    <div class="top-bar">
+        <span>📞 06 84 57 59 76</span>
+        <span>✉️ contact@immersion-malouine.com</span>
+    </div>
+
+    <header>
         <div class="logo">
-            <a href="index.html"><img src="logo-alex.png" alt="Logo Immersion Malouine"></a>
+            <a href="index.html">
+                <img src="logo-alex.png" alt="Immersion Malouine">
+            </a>
         </div>
         <nav>
             <ul>
@@ -106,54 +123,49 @@
                 <li><a href="formation.html">Formation</a></li>
                 <li><a href="exploration.html">Exploration</a></li>
                 <li><a href="sans-bouteille.html">Sans Bouteille</a></li>
-                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="reservation.html" class="btn-reserve">Réservation</a></li>
             </ul>
         </nav>
-        <div class="burger"><span></span><span></span><span></span></div>
+        <div class="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="overlay"></div>
-        <video autoplay muted loop id="bg-video">
-            <source src="https://immersion-malouine.com/dev/wp-content/uploads/2022/03/video-fond.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1>Immersion Malouine</h1>
-            <p>Plongée & Activités subaquatiques à Saint-Malo</p>
-        </div>
-    </section>
+    <main>
+        <section class="elementor-hero">
+            <div class="video-container">
+                <div class="hero-overlay"></div>
+                <video autoplay muted loop playsinline>
+                    <source src="https://immersion-malouine.com/dev/wp-content/uploads/2022/03/video-fond.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-content">
+                <h1>IMMERSION MALOUINE</h1>
+                <p>Plongée & Activités subaquatiques à Saint-Malo</p>
+            </div>
+        </section>
 
-    <div class="services-section">
-        <div class="services-grid">
-            <a href="decouverte.html" class="service-card">
-                <h3>Découverte</h3>
-                <p>Baptêmes et premières bulles pour s'émerveiller.</p>
-            </a>
-            <a href="formation.html" class="service-card">
-                <h3>Formation</h3>
-                <p>Devenez un plongeur certifié et autonome.</p>
-            </a>
-            <a href="exploration.html" class="service-card">
-                <h3>Exploration</h3>
-                <p>Plongez sur les épaves corsaires historiques.</p>
-            </a>
-            <a href="sans-bouteille.html" class="service-card">
-                <h3>Sans Bouteille</h3>
-                <p>Apnée et randonnée palmée en pleine liberté.</p>
-            </a>
-        </div>
-    </div>
+        <section class="section-services">
+            <div class="container-cards">
+                <a href="decouverte.html" class="card">
+                    <h3>Découverte</h3>
+                    <p>Baptêmes et premières bulles pour s'émerveiller.</p>
+                </a>
+                <a href="formation.html" class="card">
+                    <h3>Formation</h3>
+                    <p>Devenez un plongeur certifié et autonome.</p>
+                </a>
+                <a href="exploration.html" class="card">
+                    <h3>Exploration</h3>
+                    <p>Plongez sur les épaves corsaires historiques.</p>
+                </a>
+                <a href="sans-bouteille.html" class="card">
+                    <h3>Sans Bouteille</h3>
+                    <p>Apnée et randonnée palmée en pleine liberté.</p>
+                </a>
+            </div>
+        </section>
+    </main>
 
-    <script>
-        // Gestion du changement de couleur au scroll
-        window.onscroll = function() {
-            var header = document.getElementById('main-header');
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        };
-    </script>
 </body>
 </html>
