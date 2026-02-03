@@ -7,47 +7,36 @@
     <style>
         body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f4f7f9; }
         
-        /* HEADER HARMONISÉ */
+        /* HEADER AVEC LOGO BLANC */
         header { 
             background: #002244; padding: 10px 20px; 
             display: flex; justify-content: space-between; align-items: center;
             position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
             min-height: 90px;
         }
-        .logo img { height: 85px; background: white; padding: 8px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        .logo img { height: 80px; width: auto; background: white; padding: 5px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-        .burger-menu { cursor: pointer; z-index: 1001; }
-        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; }
-
-        .nav-links {
-            position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh;
-            display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999;
-        }
-        .nav-links.active { right: 0; }
-        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
-
-        /* LAYOUT RÉSERVATION */
         .container { max-width: 1100px; margin: 120px auto 40px; padding: 20px; }
-        h1 { color: #002244; text-align: center; }
+        h1 { color: #002244; text-align: center; margin-bottom: 30px; }
 
-        .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-        /* FORMULAIRE */
+        /* CARTES */
         .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        
-        .btn-submit { 
-            background: #ffcc00; color: #002244; width: 100%; border: none; padding: 15px; 
-            font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1.1em; 
-        }
+        h3 { color: #0044cc; margin-top: 0; border-bottom: 2px solid #ffcc00; padding-bottom: 10px; }
 
-        /* WIDGET MARÉES */
-        .tide-widget { overflow: hidden; border-radius: 15px; border: 1px solid #ddd; height: 550px; }
+        /* FORMULAIRE MOBILE-FRIENDLY */
+        input, select, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ccc; border-radius: 10px; font-size: 16px; box-sizing: border-box; }
+        .btn-send { background: #ffcc00; color: #002244; border: none; padding: 18px; width: 100%; font-weight: bold; border-radius: 10px; cursor: pointer; font-size: 1.1em; }
 
+        /* LE WIDGET WINDY (Météo/Marée) */
+        .weather-container { height: 500px; border-radius: 15px; overflow: hidden; border: 1px solid #ddd; margin-top: 15px; }
+
+        /* ADAPTATION MOBILE */
         @media (max-width: 850px) {
             .main-grid { grid-template-columns: 1fr; }
+            .container { margin-top: 100px; }
+            .weather-container { height: 400px; }
         }
 
         footer { background: #002244; color: white; text-align: center; padding: 30px; margin-top: 40px; }
@@ -57,72 +46,46 @@
 
     <header>
         <div class="logo"><img src="logo-alex.png" alt="Logo"></div>
-        <div class="burger-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
 
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html">Accueil</a>
-        <a href="decouverte.html">Découverte</a>
-        <a href="formation.html">Formation</a>
-        <a href="exploration.html">Exploration</a>
-        <a href="reservation.html">Réservation / Contact</a>
-    </nav>
-
     <div class="container">
-        <h1>Organisez votre Immersion</h1>
+        <h1>Réservation & Météo</h1>
         
         <div class="main-grid">
             <div class="card">
-                <h3>Demande de réservation</h3>
-                <form>
-                    <div class="form-group">
-                        <label>Date souhaitée</label>
-                        <input type="date" id="date-select" onchange="updateInfo()">
-                    </div>
-                    <div class="form-group">
-                        <label>Activité</label>
-                        <select>
-                            <option>Baptême</option>
-                            <option>Exploration</option>
-                            <option>Formation</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Votre Nom</label>
-                        <input type="text" placeholder="Ex: Jean Dujardin">
-                    </div>
-                    <div class="form-group">
-                        <p id="info-maree" style="background: #eef4ff; padding: 10px; border-radius: 8px; font-size: 0.9em; color: #0044cc;">
-                            💡 Sélectionnez une date pour voir les marées à droite.
-                        </p>
-                    </div>
-                    <button type="submit" class="btn-submit">ENVOYER LA DEMANDE</button>
+                <h3>1. Votre demande</h3>
+                <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+                    <input type="text" name="nom" placeholder="Nom et Prénom" required>
+                    <select name="activite">
+                        <option>Baptême</option>
+                        <option>Exploration</option>
+                        <option>Formation</option>
+                    </select>
+                    <input type="date" name="date_souhaitee" required>
+                    <textarea name="message" rows="4" placeholder="Nombre de personnes, niveau..."></textarea>
+                    <button type="submit" class="btn-send">ENVOYER À ALEX</button>
                 </form>
             </div>
 
             <div class="card">
-                <h3>Marées à Saint-Malo</h3>
-                <div class="tide-widget">
-                    <iframe src="https://www.tideschart.com/fr/France/Bretagne/Ille--et--Vilaine/Saint--Malo/prochaine-maree-widget/" width="100%" height="550" frameborder="0" scrolling="no"></iframe>
+                <h3>2. Conditions à Saint-Malo</h3>
+                <p style="font-size: 0.9em;">Consultez les prévisions (vent, vagues, marées) :</p>
+                <div class="weather-container">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.windy.com/48.648/2.008?48.600,2.008,11,m:eX3agXp&message=true" 
+                        frameborder="0">
+                    </iframe>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer><p>&copy; 2026 Immersion Malouine</p></footer>
+    <footer>
+        <p>Immersion Malouine &copy; 2026</p>
+        <p>Expertise Plongée à Saint-Malo</p>
+    </footer>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
-        function updateInfo() {
-            const date = document.getElementById('date-select').value;
-            const info = document.getElementById('info-maree');
-            if(date) {
-                info.innerHTML = "✅ Date sélectionnée. Vérifiez l'heure de la pleine mer à droite pour optimiser votre séance !";
-            }
-        }
-    </script>
 </body>
 </html>
