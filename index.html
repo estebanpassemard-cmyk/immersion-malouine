@@ -3,51 +3,50 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Immersion Malouine - École de plongée Saint-Malo</title>
+    <title>Immersion Malouine - Accueil</title>
     
     <base href="https://immersion-malouine.com/dev/public/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link rel="stylesheet" id="gdlr-core-google-font-css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"/>
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"/>
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/all.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="css/elegant-font.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/style_1.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/page-builder.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/tourmaster.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/tourmaster-global-style-custom.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="css/tourmaster-style-custom.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/style-core.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/zurf-style-custom.css" type="text/css" media="all"/>
 
     <style>
-        .zurf-logo img { max-height: 80px !important; width: auto !important; padding: 10px; background: white; border-radius: 5px; }
-        .gdlr-core-pbf-background { background-size: cover !important; }
-        .btn-reserver-link { transition: 0.3s; cursor: pointer; }
-        .btn-reserver-link:hover { background: #002244 !important; color: #ffcc00 !important; transform: scale(1.05); }
+        .gdlr-core-pbf-background { background-size: cover !important; background-position: center !important; }
+        .zurf-logo img { max-height: 50px !important; width: auto !important; }
+        .res-btn { background: #ffcc00 !important; color: #002244 !important; font-weight: 800 !important; padding: 12px 25px !important; border-radius: 5px !important; display: inline-block; text-decoration: none; }
+        .res-btn:hover { background: #ffffff !important; color: #002244 !important; }
     </style>
 </head>
 
-<body class="home page-template-default page gdlr-core-body tourmaster-body zurf-body zurf-body-front zurf-full zurf-with-sticky-navigation">
+<body class="home page-template-default page gdlr-core-body tourmaster-body zurf-body zurf-full zurf-with-sticky-navigation">
 
     <div class="zurf-body-outer-wrapper">
         <div class="zurf-body-wrapper clearfix zurf-with-transparent-header">
             
-            <header class="zurf-header-wrap zurf-header-style-plain zurf-sticky-navigation" style="background: #002244;">
+            <header class="zurf-header-wrap zurf-header-style-plain zurf-sticky-navigation" style="background: rgba(0,34,68,0.9);">
                 <div class="zurf-header-container zurf-container">
-                    <div class="zurf-header-container-inner clearfix" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                    <div class="zurf-header-container-inner clearfix" style="display:flex; justify-content:space-between; align-items:center;">
                         <div class="zurf-logo zurf-item-pdlr">
-                            <a href="#" onclick="window.location.href=window.location.origin + '/index.html'; return false;"><img src="images/logov1.png" alt="Logo"></a>
+                            <a href="#" onclick="window.location.href=window.location.origin + '/index.html'; return false;">
+                                <img src="images/logov1.png" alt="Logo">
+                            </a>
                         </div>
-                        <nav class="zurf-navigation">
-                            <ul id="menu-main-navigation" class="sf-menu" style="display: flex; list-style: none; gap: 20px;">
-                                <li><a href="#" onclick="window.location.href=window.location.origin + '/index.html'; return false;" style="color: white; text-decoration: none; font-weight: bold; text-transform: uppercase;">Accueil</a></li>
-                                <li><a href="#" onclick="window.location.href=window.location.origin + '/reservation.html'; return false;" style="background: #ffcc00; color: #002244; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 800;">RÉSERVATION</a></li>
+                        <div class="zurf-navigation zurf-item-pdlr">
+                            <ul class="sf-menu" style="display:flex; list-style:none; gap:25px; align-items:center;">
+                                <li><a href="#" onclick="window.location.href=window.location.origin + '/index.html'; return false;" style="color:#fff; text-decoration:none;">ACCUEIL</a></li>
+                                <li><a href="index.php?path=bapteme" style="color:#fff; text-decoration:none;">DÉCOUVERTE</a></li>
+                                <li><a href="index.php?path=formation_n1" style="color:#fff; text-decoration:none;">FORMATIONS</a></li>
+                                <li><a href="#" onclick="window.location.href=window.location.origin + '/reservation.html'; return false;" class="res-btn">RÉSERVATION</a></li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -55,29 +54,57 @@
             <main>
                 <div class="gdlr-core-page-builder-body">
                     
-                    <div class="gdlr-core-pbf-wrapper" style="padding: 180px 0px 140px 0px;">
+                    <div class="gdlr-core-pbf-wrapper" style="padding: 230px 0px 180px 0px;">
                         <div class="gdlr-core-pbf-background-wrap">
-                            <div class="gdlr-core-pbf-background" style="background-image: url(images/scuba-hero-bg.webp); background-position: center;"></div>
+                            <div class="gdlr-core-pbf-background gdlr-core-js" style="background-image: url(images/scuba-hero-bg.jpg);"></div>
                         </div>
                         <div class="gdlr-core-pbf-wrapper-content">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix zurf-container" style="max-width: 950px; text-align: center; position: relative; z-index: 2;">
-                                <h1 style="font-size: 82px; color: #ffffff; font-weight: 800; text-transform: uppercase; line-height: 1;">Immersion Malouine</h1>
-                                <p style="font-size: 22px; color: #ffffff; margin-top: 25px; font-weight: 500;">Plongée en Rance & baie de Saint-Malo.</p>
-                                <div style="margin-top: 50px;">
-                                    <a href="#" onclick="window.location.href=window.location.origin + '/reservation.html'; return false;" class="btn-reserver-link" style="background:#ffcc00; padding:18px 40px; color:#002244; font-weight:800; text-decoration:none; border-radius:5px; margin:10px; display: inline-block;">DÉCOUVRIR & RÉSERVER</a>
+                            <div class="gdlr-core-pbf-wrapper-container zurf-container" style="text-align:center;">
+                                <h1 style="font-size: 80px; color:#fff; font-weight:800; text-transform:uppercase; margin-bottom:10px;">Immersion Malouine</h1>
+                                <p style="font-size: 24px; color:#fff; font-weight:500;">Plongée en Rance & baie de Saint-Malo.</p>
+                                <div style="margin-top:40px;">
+                                    <a href="#" onclick="window.location.href=window.location.origin + '/reservation.html'; return false;" class="res-btn" style="padding:20px 40px !important; font-size:18px;">RÉSERVER VOTRE PLONGÉE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gdlr-core-shape-divider-wrap gdlr-core-pos-bottom">
+                            <img src="images/scuba-hero-shape-divider.png" style="width:100%; display:block;">
+                        </div>
+                    </div>
+
+                    <div class="gdlr-core-pbf-wrapper" style="padding: 80px 0px 40px 0px; background:#fff;">
+                        <div class="gdlr-core-pbf-wrapper-container zurf-container">
+                            <div class="gdlr-core-pbf-column-content-margin" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+                                <div style="width:300px; text-align:center;">
+                                    <img src="images/scuba-service-1.png" style="width:70px;">
+                                    <h3 style="margin-top:20px; color:#222;">Baptêmes</h3>
+                                    <p>Vivez votre première émotion sous-marine en toute sécurité.</p>
+                                </div>
+                                <div style="width:300px; text-align:center;">
+                                    <img src="images/scuba-service-2.png" style="width:70px;">
+                                    <h3 style="margin-top:20px; color:#222;">Formations</h3>
+                                    <p>Du débutant au plongeur confirmé, progressez avec nous.</p>
+                                </div>
+                                <div style="width:300px; text-align:center;">
+                                    <img src="images/scuba-service-3.png" style="width:70px;">
+                                    <h3 style="margin-top:20px; color:#222;">Explorations</h3>
+                                    <p>Découvrez la faune et la flore exceptionnelles de la baie.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="gdlr-core-pbf-wrapper" style="padding: 90px 0px; background: white;">
-                        <div class="gdlr-core-pbf-wrapper-container clearfix zurf-container">
-                            <div style="max-width: 800px; margin: auto; text-align: center;">
-                                <h2 style="font-size: 45px; color: #002244; font-weight: 700;">À la découverte des profondeurs bretonnes</h2>
-                                <img src="images/tour-title-divider.png" style="margin: 30px auto; display: block;">
-                                <p style="font-size: 20px; color: #556575; line-height: 1.8;">
-                                    Partez pour une aventure sous-marine au cœur des eaux de la Rance et de Saint-Malo. 
+                    <div class="gdlr-core-pbf-wrapper" style="padding: 90px 0px; background:#f5f5f5;">
+                        <div class="gdlr-core-pbf-wrapper-container zurf-container" style="display:flex; align-items:center; gap:50px;">
+                            <div style="flex:1;">
+                                <h2 style="font-size:40px; color:#002244;">À la découverte des profondeurs bretonnes</h2>
+                                <img src="images/tour-title-divider.png" style="margin:25px 0;">
+                                <p style="font-size:17px; line-height:1.8; color:#555;">
+                                    Partez pour une aventure sous-marine au cœur des eaux de la Rance et de Saint-Malo. Deux plongées guidées, entre nature sauvage et silence apaisant. Notre mission ? Vous transmettre une pratique sûre et respectueuse de la plongée.
                                 </p>
+                            </div>
+                            <div style="flex:1;">
+                                <img src="images/scuba-700x500.jpg" style="border-radius:10px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
                             </div>
                         </div>
                     </div>
@@ -85,16 +112,12 @@
                 </div>
             </main>
 
-            <footer style="background: #151b1f; padding: 80px 0; color: #fff; text-align: center;">
-                <div class="zurf-container">
-                    <img src="images/logov1.png" style="max-height: 60px; filter: brightness(0) invert(1);"><br><br>
-                    <p style="opacity: 0.7;">&copy; 2026 Immersion Malouine</p>
-                </div>
+            <footer style="background:#151b1f; padding:80px 0; color:#fff; text-align:center;">
+                <img src="images/logov1.png" style="max-height:50px; filter:brightness(0) invert(1); opacity:0.8;"><br><br>
+                <p style="font-size:14px; opacity:0.6;">© 2026 Immersion Malouine. Tous droits réservés.</p>
             </footer>
 
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
