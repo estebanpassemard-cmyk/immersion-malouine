@@ -3,88 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immersion Malouine - Saint-Malo</title>
+    <title>Accueil - Immersion Malouine</title>
     <style>
-        /* DESIGN GLOBAL */
-        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; overflow-x: hidden; background-color: #f4f7f9; }
+        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: white; background-color: #002244; }
         
-        /* HEADER */
-        header { 
-            background: #002244; padding: 10px 20px; 
-            display: flex; justify-content: space-between; align-items: center;
-            position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box;
-            min-height: 90px;
+        /* IMAGE ACCUEIL : Vue large et majestueuse */
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            min-height: 100vh; width: 100%; position: absolute; top: 0; z-index: -1;
         }
 
-        .logo img { 
-            height: 85px; width: auto; background: white; 
-            padding: 8px; border-radius: 12px; display: block; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-
-        @media (min-width: 1024px) { .logo img { height: 105px; } }
-
-        /* MENU BURGER */
-        .burger-menu { cursor: pointer; display: block; z-index: 1001; }
-        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; transition: 0.3s; }
-
-        /* MENU DÉROULANT */
-        .nav-links {
-            position: fixed; right: -100%; top: 0; 
-            background: #002244; width: 280px; height: 100vh;
-            display: flex; flex-direction: column; padding: 120px 30px;
-            transition: 0.4s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-            z-index: 999;
-        }
+        header { background: #002244; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; min-height: 90px; }
+        .logo img { height: 75px; background: white; padding: 5px; border-radius: 10px; }
+        
+        .burger-menu { cursor: pointer; z-index: 1001; }
+        .burger-menu span { display: block; width: 35px; height: 4px; background: white; margin: 6px 0; }
+        
+        .nav-links { position: fixed; right: -100%; top: 0; background: #002244; width: 280px; height: 100vh; display: flex; flex-direction: column; padding: 120px 30px; transition: 0.4s; z-index: 999; }
         .nav-links.active { right: 0; }
-        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; font-size: 1.2em; }
+        .nav-links a { color: white; text-decoration: none; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; font-size: 1.1em; }
 
-        /* HERO SECTION */
-        .hero { 
-            height: 75vh; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; padding: 0 20px; margin-top: 90px;
-        }
-        .hero h1 { font-size: 3.2em; margin: 0; text-shadow: 3px 3px 10px rgba(0,0,0,0.7); }
-        .hero p { font-size: 1.4em; margin: 15px 0 30px; }
-
-        /* SECTION SERVICES */
-        .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .services h2 { color: #002244; font-size: 2.2em; margin-bottom: 40px; }
+        .content { margin-top: 160px; padding: 20px; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; }
+        .hero-text h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-text p { font-size: 1.4em; margin-bottom: 30px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        article { 
-            background: white; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.3s;
-            text-align: left;
-        }
-        .img-card { height: 250px; width: 100%; object-fit: cover; border-bottom: 4px solid #ffcc00; }
-        .card-content { padding: 20px; }
-        article h3 { color: #002244; margin-top: 0; }
-        .price { font-size: 1.3em; font-weight: bold; color: #0044cc; display: block; margin-top: 10px; }
+        .card-intro { background: rgba(0, 34, 68, 0.75); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-main { display: inline-block; background: #ffcc00; color: #002244; padding: 18px 40px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2em; transition: 0.3s; }
+        .btn-main:hover { transform: scale(1.05); background: white; }
 
-        /* BOUTON */
-        .btn-reserver { 
-            background: #ffcc00; color: #002244; padding: 15px 40px; 
-            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em;
-            transition: 0.3s; display: inline-block;
-        }
-
-        footer { background: #002244; color: white; text-align: center; padding: 40px; margin-top: 40px; }
+        footer { position: fixed; bottom: 20px; width: 100%; text-align: center; font-size: 0.9em; opacity: 0.8; }
     </style>
 </head>
 <body>
+    <div class="hero-bg"></div>
 
     <header>
-        <div class="logo">
-            <img src="logo-alex.png" alt="IMMERSION MALOUINE">
-        </div>
+        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
         <div class="burger-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </header>
 
@@ -94,54 +52,26 @@
         <a href="formation.html">Formation</a>
         <a href="exploration.html">Exploration</a>
         <a href="sans-bouteille.html">Sans Bouteille</a>
-        <a href="reservation.html">Réservation / Contact</a>
+        <a href="reservation.html">Réservation</a>
     </nav>
 
-    <section class="hero">
-        <h1>IMMERSION MALOUINE</h1>
-        <p>Centre de plongée sous-marine à Saint-Malo</p>
-        <a href="reservation.html" class="btn-reserver">RÉSERVER UNE SÉANCE</a>
-    </section>
-
-    <section class="services">
-        <h2>Nos Activités</h2>
-        <div class="grid">
-            <article>
-                <img src="https://images.unsplash.com/photo-1592136957897-b2b6ca21e10d?q=80&w=800&auto=format&fit=crop" class="img-card" alt="Baptême Plongée">
-                <div class="card-content">
-                    <h3>Baptêmes</h3>
-                    <p>Vos premières bulles avec un moniteur passionné.</p>
-                    <span class="price">60€</span>
-                </div>
-            </article>
-            <article>
-                <img src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?q=80&w=800&auto=format&fit=crop" class="img-card" alt="Exploration Épave">
-                <div class="card-content">
-                    <h3>Exploration</h3>
-                    <p>Découvrez les secrets des épaves malouines.</p>
-                    <span class="price">45€</span>
-                </div>
-            </article>
-            <article>
-                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop" class="img-card" alt="Formation Plongée Humour">
-                <div class="card-content">
-                    <h3>Formations</h3>
-                    <p>Devenez un expert (ou un chat-plongeur) !</p>
-                    <span class="price">Sur devis</span>
-                </div>
-            </article>
+    <div class="content">
+        <div class="hero-text">
+            <h1>Immersion Malouine</h1>
+            <p>Explorez les fonds marins de la cité corsaire avec Alex.</p>
         </div>
-    </section>
+        <div class="card-intro">
+            <h3>Bienvenue à bord</h3>
+            <p>Que vous soyez débutant pour un baptême ou plongeur confirmé en quête d'épaves, nous avons la sortie qu'il vous faut.</p>
+            <a href="reservation.html" class="btn-main">Réserver une séance</a>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Immersion Malouine - Saint-Malo</p>
-        <p>06 84 57 59 76</p>
-    </footer>
+    <footer>&copy; 2026 Immersion Malouine - Saint-Malo</footer>
 
     <script>
         function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
     </script>
 </body>
