@@ -26,7 +26,8 @@
     <style>
         .zurf-logo img { max-height: 80px !important; width: auto !important; padding: 10px; background: white; border-radius: 5px; }
         .gdlr-core-pbf-background { background-size: cover !important; }
-        .btn-reserver:hover { background: #002244 !important; color: #ffcc00 !important; }
+        .btn-reserver-link { transition: 0.3s; }
+        .btn-reserver-link:hover { background: #002244 !important; color: #ffcc00 !important; transform: scale(1.05); }
     </style>
 </head>
 
@@ -46,8 +47,7 @@
                                 <li><a href="index.html" style="color: white; text-decoration: none; font-weight: bold; text-transform: uppercase;">Accueil</a></li>
                                 <li><a href="index.php?path=bapteme" style="color: white; text-decoration: none; font-weight: bold; text-transform: uppercase;">Découverte</a></li>
                                 <li><a href="index.php?path=formation_n1" style="color: white; text-decoration: none; font-weight: bold; text-transform: uppercase;">Formations</a></li>
-                                <li><a href="index.php?path=contact" style="color: white; text-decoration: none; font-weight: bold; text-transform: uppercase;">Contact</a></li>
-                                <li><a href="#" style="background: #ffcc00; color: #002244; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 800;">RÉSERVATION</a></li>
+                                <li><a href="reservation.html" style="background: #ffcc00; color: #002244; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 800;">RÉSERVATION</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -64,10 +64,10 @@
                         <div class="gdlr-core-pbf-wrapper-content">
                             <div class="gdlr-core-pbf-wrapper-container clearfix zurf-container" style="max-width: 950px; text-align: center; position: relative; z-index: 2;">
                                 <h1 style="font-size: 82px; color: #ffffff; font-weight: 800; text-transform: uppercase; line-height: 1;">Immersion Malouine</h1>
-                                <p style="font-size: 22px; color: #ffffff; margin-top: 25px; font-weight: 500;">Plongée en Rance & baie de Saint-Malo.<br>Baptêmes, formations et explorations au cœur de fonds marins uniques.</p>
+                                <p style="font-size: 22px; color: #ffffff; margin-top: 25px; font-weight: 500;">Plongée en Rance & baie de Saint-Malo.</p>
                                 <div style="margin-top: 50px;">
-                                    <a href="#" class="btn-reserver" style="background:#ffcc00; padding:18px 40px; color:#002244; font-weight:800; text-decoration:none; border-radius:5px; margin:10px; display: inline-block;">EXPLORATION</a>
-                                    <a href="#" class="btn-reserver" style="background:#ffffff; padding:18px 40px; color:#002244; font-weight:800; text-decoration:none; border-radius:5px; margin:10px; display: inline-block;">DÉCOUVERTE</a>
+                                    <a href="reservation.html" class="btn-reserver-link" style="background:#ffcc00; padding:18px 40px; color:#002244; font-weight:800; text-decoration:none; border-radius:5px; margin:10px; display: inline-block;">VOIR NOS OFFRES</a>
+                                    <a href="reservation.html" class="btn-reserver-link" style="background:#ffffff; padding:18px 40px; color:#002244; font-weight:800; text-decoration:none; border-radius:5px; margin:10px; display: inline-block;">RÉSERVER UN BAPTÊME</a>
                                 </div>
                             </div>
                         </div>
@@ -78,9 +78,8 @@
                             <div style="max-width: 800px; margin: auto; text-align: center;">
                                 <h2 style="font-size: 45px; color: #002244; font-weight: 700;">À la découverte des profondeurs bretonnes</h2>
                                 <img src="images/tour-title-divider.png" style="margin: 30px auto; display: block;">
-                                <p style="font-size: 20px; color: #556575; line-height: 1.8; font-weight: 400;">
+                                <p style="font-size: 20px; color: #556575; line-height: 1.8;">
                                     Partez pour une aventure sous-marine au cœur des eaux de la Rance et de Saint-Malo. 
-                                    Deux plongées guidées, entre nature sauvage et silence apaisant.
                                 </p>
                             </div>
                         </div>
@@ -92,8 +91,8 @@
             <footer style="background: #151b1f; padding: 80px 0; color: #fff; text-align: center;">
                 <div class="zurf-container">
                     <img src="images/logov1.png" style="max-height: 60px; filter: brightness(0) invert(1);"><br><br>
-                    <p style="opacity: 0.7;">&copy; 2026 Immersion Malouine - Saint-Malo, Bretagne</p>
-                    <p style="font-size: 14px; opacity: 0.5;">École de plongée professionnelle</p>
+                    <p style="opacity: 0.7;">&copy; 2026 Immersion Malouine</p>
+                    <a href="reservation.html" style="color: #ffcc00; text-decoration: none;">Réserver maintenant</a>
                 </div>
             </footer>
 
