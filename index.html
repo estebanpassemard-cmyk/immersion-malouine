@@ -6,125 +6,93 @@
     <title>Immersion Malouine - Accueil</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #002244; --accent: #ffcc00; --text: #ffffff; }
+        :root { --primary: #002244; --accent: #ffcc00; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--primary); color: var(--text); overflow-x: hidden; }
-
-        /* TOPBAR CONTACT */
-        .topbar { background: #001a33; padding: 10px 50px; display: flex; justify-content: flex-end; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .topbar span { margin-left: 20px; opacity: 0.8; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--primary); color: white; }
 
         /* HEADER & NAV */
         header { 
             background: var(--primary); height: 90px; display: flex; 
             justify-content: space-between; align-items: center; 
-            padding: 0 50px; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            padding: 0 50px; position: fixed; width: 100%; top: 0; z-index: 1000;
         }
-        .logo img { height: 60px; background: #fff; padding: 5px; border-radius: 4px; }
-        
-        nav ul { display: flex; list-style: none; align-items: center; }
-        nav ul li { margin-left: 25px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent); }
-        .btn-reserver-head { background: var(--accent); color: var(--primary) !important; padding: 10px 20px; border-radius: 5px; }
+        .logo img { height: 65px; background: white; padding: 5px; border-radius: 5px; }
 
-        /* HERO SECTION DYNAMIQUE */
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* BURGER MENU */
+        .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .burger span { width: 25px; height: 3px; background: white; }
+
+        /* HERO SECTION */
         .hero {
-            height: 90vh; width: 100%;
-            background: linear-gradient(rgba(0,34,68,0.4), rgba(0,34,68,0.4)), 
+            height: 100vh; width: 100%;
+            background: linear-gradient(rgba(0,34,68,0.5), rgba(0,34,68,0.5)), 
                         url('https://immersion-malouine.com/dev/wp-content/uploads/2022/03/fond-accueil.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-size: 4.5rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 40px; font-weight: 300; }
+        .hero h1 { font-size: clamp(2rem, 8vw, 4rem); text-transform: uppercase; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 800px; padding: 0 20px; }
 
-        /* SERVICES GRID (Exactement comme le site de référence) */
+        /* SERVICES GRID */
         .services-grid { 
-            display: grid; grid-template-columns: repeat(4, 1fr); 
-            gap: 20px; width: 90%; max-width: 1200px; margin-top: -80px; 
-            z-index: 10; position: relative;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; width: 90%; max-width: 1200px; margin-top: -50px; 
         }
-        .service-card {
-            background: rgba(255,255,255,0.08); backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; 
-            border-radius: 12px; text-decoration: none; color: #fff; text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .card {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            padding: 40px 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none; color: white; transition: 0.3s;
         }
-        .service-card:hover { 
-            background: rgba(255,255,255,0.15); border-color: var(--accent);
-            transform: translateY(-15px); box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
-        .service-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.4rem; text-transform: uppercase; }
-        .service-card p { font-size: 0.95rem; opacity: 0.8; line-height: 1.5; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); background: rgba(255, 255, 255, 0.2); }
+        .card h3 { color: var(--accent); margin-bottom: 10px; text-transform: uppercase; }
 
-        /* MOBILE BURGER */
-        .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-        .burger span { width: 30px; height: 3px; background: #fff; transition: 0.3s; }
-
-        @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); margin-top: 30px; }
-            .hero h1 { font-size: 3rem; }
-        }
+        /* MOBILE STYLES */
         @media (max-width: 768px) {
-            .topbar, nav { display: none; }
-            .burger { display: flex; }
-            .services-grid { grid-template-columns: 1fr; width: 95%; }
             header { padding: 0 20px; }
-            .hero { height: auto; padding: 100px 20px 50px; }
+            .burger { display: flex; }
+            .nav-links { 
+                position: fixed; right: -100%; top: 90px; background: var(--primary); 
+                width: 100%; height: 100vh; flex-direction: column; align-items: center; 
+                padding-top: 50px; transition: 0.4s; 
+            }
+            .nav-links.active { right: 0; }
+            .hero { height: auto; padding: 150px 0 50px; }
         }
     </style>
 </head>
 <body>
-
-    <div class="topbar">
-        <span>📞 06.84.57.59.76</span>
-        <span>✉️ contact@immersion-malouine.com</span>
-    </div>
-
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="logo-alex.png" alt="Logo"></a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="decouverte.html">Découverte</a></li>
-                <li><a href="formation.html">Formation</a></li>
-                <li><a href="exploration.html">Exploration</a></li>
-                <li><a href="sans-bouteille.html">Sans Bouteille</a></li>
-                <li><a href="reservation.html" class="btn-reserver-head">Réservation</a></li>
-            </ul>
-        </nav>
-        <div class="burger" onclick="document.querySelector('nav').style.display = 'flex'">
+        <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="decouverte.html">Découverte</a></li>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="exploration.html">Exploration</a></li>
+            <li><a href="sans-bouteille.html">Sans Bouteille</a></li>
+            <li><a href="reservation.html">Réservation</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </div>
     </header>
 
     <section class="hero">
         <h1>Immersion Malouine</h1>
-        <p>Plongée en Rance & baie de Saint-Malo. Baptêmes, formations et explorations au cœur de fonds marins uniques.</p>
-        
+        <p>Votre école de plongée itinérante à Saint-Malo</p>
         <div class="services-grid">
-            <a href="decouverte.html" class="service-card">
-                <h3>Découverte</h3>
-                <p>Vivez votre premier souffle sous l'eau lors d'un baptême inoubliable.</p>
-            </a>
-            <a href="formation.html" class="service-card">
-                <h3>Formation</h3>
-                <p>Passez vos niveaux N1, N2 ou N3 avec un encadrement professionnel.</p>
-            </a>
-            <a href="exploration.html" class="service-card">
-                <h3>Exploration</h3>
-                <p>Découvrez les épaves corsaires et la faune de la Côte d'Émeraude.</p>
-            </a>
-            <a href="sans-bouteille.html" class="service-card">
-                <h3>Sans Bouteille</h3>
-                <p>Apnée et randonnée palmée pour une liberté totale en surface.</p>
-            </a>
+            <a href="decouverte.html" class="card"><h3>Découverte</h3><p>Baptêmes et premières bulles.</p></a>
+            <a href="formation.html" class="card"><h3>Formation</h3><p>Niveaux 1, 2 et 3.</p></a>
+            <a href="exploration.html" class="card"><h3>Exploration</h3><p>Épaves et faune locale.</p></a>
+            <a href="sans-bouteille.html" class="card"><h3>Sans Bouteille</h3><p>Apnée et snorkeling.</p></a>
         </div>
     </section>
 
+    <script>
+        function toggleMenu() { document.getElementById('nav-links').classList.toggle('active'); }
+    </script>
 </body>
 </html>
