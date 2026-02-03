@@ -5,73 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immersion Malouine - Accueil</title>
     <style>
-        :root { --bleu: #002244; --jaune: #ffcc00; }
-        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; color: white; background: var(--bleu); }
-        
-        .hero {
-            background: linear-gradient(rgba(0,34,68,0.5), rgba(0,34,68,0.5)), 
-                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1920&auto=format&fit=crop');
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { height: 100%; font-family: 'Poppins', sans-serif; color: #fff; background-color: #002244; overflow-x: hidden; }
+
+        /* HEADER ORIGINAL */
+        header {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            background-color: #002244; display: flex;
+            justify-content: space-between; align-items: center;
+            padding: 0 50px; z-index: 1000;
+        }
+        .logo img { height: 70px; background: #fff; padding: 5px; border-radius: 5px; }
+
+        /* MENU NAVIGATION */
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { 
+            color: #fff; text-decoration: none; font-weight: 600; 
+            text-transform: uppercase; font-size: 14px; transition: 0.3s;
+        }
+        nav ul li a:hover { color: #ffcc00; }
+
+        /* BURGER MENU (MOBILE) */
+        .burger { display: none; cursor: pointer; }
+        .burger div { width: 25px; height: 3px; background: #fff; margin: 5px; }
+
+        /* HERO SECTION AVEC FOND FIXE */
+        .hero-section {
+            position: relative; height: 100vh; width: 100%;
+            background-image: linear-gradient(rgba(0,34,68,0.5), rgba(0,34,68,0.5)), 
+                              url('https://immersion-malouine.com/dev/wp-content/uploads/2022/03/fond-accueil.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
-            min-height: 100vh; width: 100%; display: flex; flex-direction: column;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding-top: 90px;
         }
 
-        header { background: var(--bleu); height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; }
-        .logo img { height: 65px; background: white; padding: 5px; border-radius: 5px; }
+        .hero-section h1 { font-size: 4rem; text-transform: uppercase; margin-bottom: 20px; }
+        .hero-section p { font-size: 1.2rem; max-width: 800px; margin-bottom: 40px; }
 
-        /* MENU BURGER NAVIGATION */
-        .nav-links { position: fixed; right: -100%; top: 90px; background: var(--bleu); width: 100%; height: calc(100vh - 90px); display: flex; flex-direction: column; align-items: center; transition: 0.4s; z-index: 999; }
-        .nav-links.active { right: 0; }
-        .nav-links a { color: white; text-decoration: none; padding: 20px; font-weight: bold; font-size: 1.2rem; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; text-align: center; }
-        
-        .burger { cursor: pointer; display: block; }
-        .burger div { width: 30px; height: 3px; background: white; margin: 6px; transition: 0.3s; }
-
-        /* BUREAU (DESKTOP) */
-        @media (min-width: 769px) {
-            .burger { display: none; }
-            .nav-links { position: static; height: auto; width: auto; flex-direction: row; background: transparent; }
-            .nav-links a { width: auto; border: none; font-size: 0.9rem; padding: 0 15px; }
+        /* GRILLE DE CARTES (DESIGN COPIÉ) */
+        .services-container {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 20px; width: 90%; max-width: 1200px;
         }
+        .service-box {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            padding: 40px 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none; color: #fff; transition: all 0.4s ease;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .service-box:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffcc00;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .service-box h3 { color: #ffcc00; margin-bottom: 15px; text-transform: uppercase; font-size: 1.2rem; }
+        .service-box p { font-size: 0.9rem; line-height: 1.5; opacity: 0.9; }
 
-        .main-content { margin-top: 130px; padding: 20px; text-align: center; flex: 1; }
-        h1 { font-size: 3rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 35px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: white; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-color: var(--jaune); background: rgba(255, 255, 255, 0.2); }
-        .card h3 { color: var(--jaune); margin-top: 0; font-size: 1.5rem; }
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .services-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-section h1 { font-size: 2.5rem; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 0 20px; }
+            nav { display: none; } /* On cache le menu simple pour le burger */
+            .burger { display: block; }
+            .services-container { grid-template-columns: 1fr; }
+            .hero-section { height: auto; padding: 150px 20px 50px 20px; }
+            
+            /* Menu mobile actif */
+            .nav-active {
+                display: flex !important; position: fixed; top: 90px; right: 0;
+                height: calc(100vh - 90px); background: #002244; width: 100%;
+                flex-direction: column; align-items: center; justify-content: center;
+            }
+            .nav-active li { margin: 20px 0; }
+        }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <header>
-            <div class="logo"><a href="index.html"><img src="logo-alex.png" alt="Logo"></a></div>
-            <div class="burger" id="burger"><div></div><div></div><div></div></div>
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="decouverte.html">Découverte</a>
-                <a href="formation.html">Formation</a>
-                <a href="exploration.html">Exploration</a>
-                <a href="sans-bouteille.html">Sans Bouteille</a>
-                <a href="reservation.html">Réservation</a>
-            </nav>
-        </header>
 
-        <div class="main-content">
-            <h1>Immersion Malouine</h1>
-            <p>Plongée et activités subaquatiques à Saint-Malo</p>
-            <div class="grid">
-                <a href="decouverte.html" class="card"><h3>Découverte</h3><p>Baptêmes et initiations pour tous.</p></a>
-                <a href="formation.html" class="card"><h3>Formation</h3><p>Progressez du Niveau 1 au Niveau 3.</p></a>
-                <a href="exploration.html" class="card"><h3>Exploration</h3><p>Épaves et faune de la Côte d'Émeraude.</p></a>
-                <a href="sans-bouteille.html" class="card"><h3>Sans Bouteille</h3><p>Apnée et randonnée palmée.</p></a>
-            </div>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo-alex.png" alt="Logo Immersion Malouine"></a>
         </div>
-    </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decouverte.html">Découverte</a></li>
+                <li><a href="formation.html">Formation</a></li>
+                <li><a href="exploration.html">Exploration</a></li>
+                <li><a href="sans-bouteille.html">Sans Bouteille</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+            </ul>
+        </nav>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <h1>Immersion Malouine</h1>
+        <p>Le centre de plongée itinérant à Saint-Malo. Découvrez la beauté des fonds marins de la Côte d'Émeraude.</p>
+        
+        <div class="services-container">
+            <a href="decouverte.html" class="service-box">
+                <h3>Découverte</h3>
+                <p>Baptêmes et premières bulles pour s'émerveiller.</p>
+            </a>
+            <a href="formation.html" class="service-box">
+                <h3>Formation</h3>
+                <p>Devenez un plongeur certifié et autonome.</p>
+            </a>
+            <a href="exploration.html" class="service-box">
+                <h3>Exploration</h3>
+                <p>Plongez sur les épaves corsaires historiques.</p>
+            </a>
+            <a href="sans-bouteille.html" class="service-box">
+                <h3>Sans Bouteille</h3>
+                <p>Apnée et randonnée palmée en pleine liberté.</p>
+            </a>
+        </div>
+    </section>
+
     <script>
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav-links');
-        burger.onclick = () => { nav.classList.toggle('active'); };
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('nav-active');
+        }
     </script>
 </body>
 </html>
