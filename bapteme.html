@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baptême de Plongée | Immersion Malouine</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@300;400;700;900&display=swap">
+    
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/style-core.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/zurf-style-custom.css" type="text/css" media="all">
+
+    <style>
+        /* CSS POUR LE MENU DÉROULANT */
+        .sf-menu li { position: relative; float: left; list-style: none; }
+        .sf-menu li a { color: white !important; padding: 10px 15px; display: block; font-weight: 700; }
+        
+        .sf-menu li ul.sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #0d1b2a;
+            min-width: 180px;
+            z-index: 999;
+            padding: 10px 0;
+            margin: 0;
+        }
+        .sf-menu li:hover > ul.sub-menu { display: block; }
+        .sf-menu li ul.sub-menu li { width: 100%; }
+        .sf-menu li ul.sub-menu li a {
+            padding: 10px 20px;
+            font-size: 13px;
+            text-transform: none;
+        }
+        .sf-menu li ul.sub-menu li a:hover { background: #2c7b8d; }
+        
+        .zurf-logo { padding-top: 15px !important; }
+        .hero-mini { 
+            padding: 150px 0 80px 0; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/scuba-hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="page zurf-body zurf-full">
+
+    <div class="zurf-body-outer-wrapper">
+        <div class="zurf-body-wrapper clearfix">
+            
+            <header class="zurf-header-wrap" style="background: #0d1b2a;">
+                <div class="zurf-container clearfix">
+                    <div class="zurf-logo zurf-item-pdlr" style="float: left;">
+                        <a href="index.html"><img src="images/logov1.png" alt="Logo" width="150"></a>
+                    </div>
+                    
+                    <nav class="zurf-navigation" style="float: right; margin-top: 20px;">
+                        <ul class="sf-menu">
+                            <li><a href="index.html">Accueil</a></li>
+                            <li>
+                                <a href="#">Découverte</a>
+                                <ul class="sub-menu">
+                                    <li><a href="bapteme.html">Baptême</a></li>
+                                    <li><a href="initiation.html">Initiation</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Formation</a>
+                                <ul class="sub-menu">
+                                    <li><a href="formation-n1.html">Niveau 1</a></li>
+                                    <li><a href="formation-n2.html">Niveau 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <section class="hero-mini">
+                    <div class="zurf-container">
+                        <h1 style="font-size: 50px; font-weight: 700;">Le Baptême de Plongée</h1>
+                        <p style="font-size: 20px;">Votre première respiration sous l'eau à Saint-Malo</p>
+                    </div>
+                </section>
+
+                <section style="padding: 80px 0;">
+                    <div class="zurf-container">
+                        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                            <div style="flex: 2; min-width: 300px;">
+                                <h2>Une expérience inoubliable</h2>
+                                <p>Accessible à tous dès 8 ans, le baptême est la première étape pour découvrir la beauté des fonds marins. Accompagné individuellement par un moniteur diplômé d'État, vous évoluerez en toute sécurité entre 0 et 6 mètres de profondeur.</p>
+                                <p>Nous vous fournissons tout l'équipement nécessaire : combinaison, palmes, masque et bouteille.</p>
+                                
+                                <h3 style="margin-top: 30px;">Infos pratiques</h3>
+                                <ul>
+                                    <li>Durée de l'activité : environ 2h30</li>
+                                    <li>Temps sous l'eau : 20 à 30 minutes</li>
+                                    <li>Aucun certificat médical requis pour le baptême</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 250px; background: #f8f8f8; padding: 30px; border-radius: 10px;">
+                                <h4 style="color: #2c7b8d;">Tarif : 85€</h4>
+                                <p>Inclus : moniteur privé, équipement complet et diplôme souvenir.</p>
+                                <a href="contact.html" style="background: #2c7b8d; color: white; padding: 15px; display: block; text-align: center; text-decoration: none; font-weight: bold; border-radius: 5px;">RÉSERVER MON BAPTÊME</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer style="background: #0d1b2a; color: #fff; padding: 40px 0; text-align: center;">
+                <p>Copyright © 2026 Immersion Malouine.</p>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
