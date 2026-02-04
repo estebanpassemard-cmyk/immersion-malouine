@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Immersion Malouine | Plongée Saint-Malo & Rance</title>
+    <title>Immersion Malouine | Accueil</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,67 +15,83 @@
     <link rel="stylesheet" href="css/zurf-style-custom.css" type="text/css" media="all">
 
     <style>
-        .zurf-logo { padding-top: 14px!important; }
-        /* Style pour s'assurer que le menu est visible */
-        .sf-menu > li > a { color: white !important; font-weight: bold; }
-        .zurf-navigation { float: right; }
+        /* Correction du menu pour éviter les erreurs de clic */
+        .zurf-navigation { float: right; margin-top: 25px; }
+        .sf-menu { list-style: none; margin: 0; padding: 0; display: flex; }
+        .sf-menu li { margin-left: 25px; position: relative; }
+        .sf-menu li a { color: #fff; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .sf-menu li a:hover { color: #2c7b8d; }
+        
+        .hero-section { 
+            height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/scuba-hero-bg.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+        }
+        
+        .btn-main { 
+            background: #2c7b8d; 
+            color: white; 
+            padding: 15px 30px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin: 10px; 
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: #1e5a68; color: white; }
+        .btn-outline { background: white; color: #2c7b8d; }
     </style>
 </head>
 
-<body class="home page-template-default page gdlr-core-body tourmaster-body zurf-body zurf-full zurf-with-sticky-navigation">
+<body class="home page-template-default page zurf-body zurf-full">
 
     <div class="zurf-body-outer-wrapper">
-        <div class="zurf-body-wrapper clearfix zurf-with-transparent-header">
+        <div class="zurf-body-wrapper clearfix">
             
-            <header class="zurf-header-wrap zurf-header-style-plain zurf-sticky-navigation" style="background: rgba(13, 27, 42, 0.9);">
-                <div class="zurf-header-container zurf-container">
-                    <div class="zurf-header-container-inner clearfix">
-                        <div class="zurf-logo zurf-item-pdlr">
-                            <a href="index.html"><img src="images/logov1.png" alt="Logo" width="150"></a>
-                        </div>
-                        <div class="zurf-navigation zurf-item-pdlr clearfix">
-                            <div class="zurf-main-menu">
-                                <ul class="sf-menu">
-                                    <li class="menu-item"><a href="index.html">Accueil</a></li>
-                                    <li class="menu-item"><a href="bapteme.html">Baptême</a></li>
-                                    <li class="menu-item"><a href="formations.html">Formations</a></li>
-                                    <li class="menu-item"><a href="exploration.html">Exploration</a></li>
-                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
+            <header class="zurf-header-wrap" style="position: absolute; width: 100%; z-index: 99; background: transparent;">
+                <div class="zurf-container clearfix">
+                    <div class="zurf-logo zurf-item-pdlr" style="float: left; padding-top: 20px;">
+                        <a href="index.html"><img src="images/logov1.png" alt="Logo" width="160"></a>
                     </div>
+                    
+                    <nav class="zurf-navigation">
+                        <ul class="sf-menu">
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="bapteme.html">Baptême</a></li>
+                            <li><a href="formations.html">Formations</a></li>
+                            <li><a href="exploration.html">Exploration</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </header>
 
             <main>
-                <div class="gdlr-core-pbf-wrapper" style="padding: 220px 0px 180px 0px;">
-                    <div class="gdlr-core-pbf-background-wrap">
-                        <div class="gdlr-core-pbf-background" style="background-image: url(images/scuba-hero-bg.jpg); background-size: cover; background-position: center; background-color: #000;"></div>
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4);"></div>
-                    </div>
-                    <div class="gdlr-core-pbf-wrapper-content" style="position: relative; z-index: 2;">
-                        <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container" style="max-width: 950px; text-align: center;">
-                            <h1 style="font-size: 70px; color: #ffffff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Immersion Malouine</h1>
-                            <p style="font-size: 24px; color: #ffffff; margin-top: 20px;">Plongée à Saint-Malo & en Rance</p>
-                            
-                            <div style="margin-top: 40px;">
-                                <a href="bapteme.html" class="gdlr-core-button" style="background: #2c7b8d; color: white; padding: 18px 35px; margin: 10px; border-radius: 5px; display: inline-block; font-weight: bold; text-decoration: none;">DÉCOUVRIR LE BAPTÊME</a>
-                                <a href="contact.html" class="gdlr-core-button" style="background: #ffffff; color: #2c7b8d; padding: 18px 35px; margin: 10px; border-radius: 5px; display: inline-block; font-weight: bold; text-decoration: none;">RÉSERVER</a>
-                            </div>
+                <section class="hero-section">
+                    <div class="zurf-container">
+                        <h1 style="font-size: 60px; margin-bottom: 10px; font-weight: 900;">IMMERSION MALOUINE</h1>
+                        <p style="font-size: 24px; margin-bottom: 30px;">Plongée sous-marine à Saint-Malo et en Rance</p>
+                        <div class="hero-buttons">
+                            <a href="bapteme.html" class="btn-main">DÉCOUVRIR LE BAPTÊME</a>
+                            <a href="contact.html" class="btn-main btn-outline">RÉSERVER</a>
                         </div>
                     </div>
-                </div>
+                </section>
             </main>
 
-            <footer style="background: #151b1f; color: #aaa; padding: 40px 0; text-align: center;">
-                <div class="zurf-container">
-                    <p>Copyright © 2026 Immersion Malouine - Saint-Malo</p>
-                </div>
+            <footer style="background: #0d1b2a; color: #fff; padding: 40px 0; text-align: center;">
+                <p>Copyright © 2026 Immersion Malouine. Tous droits réservés.</p>
             </footer>
+
         </div>
     </div>
 
-    <script src="js/jquery.js"></script>
 </body>
 </html>
