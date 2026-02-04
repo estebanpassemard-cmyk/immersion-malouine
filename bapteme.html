@@ -3,126 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Baptême de Plongée | Immersion Malouine</title>
+    <title>Baptême de Plongée - Immersion Malouine</title>
 
+    <link rel="preload" as="image" href="images/scuba-hero-bg.jpg" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@300;400;700;900&display=swap">
+    <link rel="stylesheet" href="../../css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap">
     
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/all.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/style_1.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/page-builder.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/tourmaster.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style-core.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/zurf-style-custom.css" type="text/css" media="all">
 
     <style>
-        /* CSS POUR LE MENU DÉROULANT */
-        .sf-menu li { position: relative; float: left; list-style: none; }
-        .sf-menu li a { color: white !important; padding: 10px 15px; display: block; font-weight: 700; }
-        
-        .sf-menu li ul.sub-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #0d1b2a;
-            min-width: 180px;
-            z-index: 999;
-            padding: 10px 0;
-            margin: 0;
+        /* Styles pour le sélecteur de langue personnalisé */
+        .custom-select-wrapper { position: relative; width: 200px; font-family: sans-serif; }
+        .custom-select { cursor: pointer; display: flex; align-items: center; justify-content: space-between; color: white; }
+        .custom-select img { width: 20px; height: auto; margin-right: 8px; }
+        .custom-select-options { 
+            position: absolute; top: 100%; left: 0; background-color: #0d1b2a; 
+            z-index: 100; display: none; width: 150px; border: 1px solid #2c7b8d;
         }
-        .sf-menu li:hover > ul.sub-menu { display: block; }
-        .sf-menu li ul.sub-menu li { width: 100%; }
-        .sf-menu li ul.sub-menu li a {
-            padding: 10px 20px;
-            font-size: 13px;
-            text-transform: none;
-        }
-        .sf-menu li ul.sub-menu li a:hover { background: #2c7b8d; }
-        
-        .zurf-logo { padding-top: 15px !important; }
-        .hero-mini { 
-            padding: 150px 0 80px 0; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/scuba-hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            color: white;
-        }
+        .custom-select-option { padding: 10px; display: flex; align-items: center; cursor: pointer; color: white; }
+        .custom-select-option:hover { background-color: #2c7b8d; }
+        .custom-select-option img { width: 20px; margin-right: 8px; }
+        .zurf-logo { padding-top: 14px !important; }
     </style>
 </head>
 
-<body class="page zurf-body zurf-full">
+<body class="home page-template-default page gdlr-core-body tourmaster-body zurf-body zurf-with-sticky-navigation">
+
+    <div class="zurf-mobile-header-wrap">
+        <div class="zurf-top-bar">
+            <div class="zurf-top-bar-background"></div>
+            <div class="zurf-top-bar-container zurf-container clearfix">
+                <div class="zurf-top-bar-right zurf-item-pdlr">
+                    <div class="zurf-top-bar-right-text">
+                        <i class="fa5s fa5-phone"></i><span> 06.84.57.59.76</span>
+                        <i class="fa5s fa5-envelope-open" style="margin-left: 20px;"></i><span> contact@immersion-malouine.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="zurf-mobile-header zurf-header-background zurf-sticky-mobile-navigation" id="zurf-mobile-header">
+            <div class="zurf-mobile-header-container zurf-container clearfix">
+                <div class="zurf-logo zurf-item-pdlr">
+                    <a href="index.html"><img src="images/logov1.png" alt="Logo" width="198"></a>
+                </div>
+                <div class="zurf-mobile-menu-right">
+                    <a class="zurf-mm-menu-button zurf-mobile-button-hamburger" href="#zurf-mobile-menu"><span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="zurf-body-outer-wrapper">
-        <div class="zurf-body-wrapper clearfix">
+        <div class="zurf-body-wrapper clearfix zurf-with-transparent-header zurf-with-frame">
             
-            <header class="zurf-header-wrap" style="background: #0d1b2a;">
-                <div class="zurf-container clearfix">
-                    <div class="zurf-logo zurf-item-pdlr" style="float: left;">
-                        <a href="index.html"><img src="images/logov1.png" alt="Logo" width="150"></a>
+            <div class="zurf-top-bar">
+                <div class="zurf-top-bar-container zurf-container clearfix">
+                    <div class="zurf-top-bar-left zurf-item-pdlr">
+                        <div class="custom-select-wrapper">
+                            <div class="custom-select" id="custom-select-trigger">
+                                <img src="https://flagcdn.com/fr.svg" alt="FR"> <span>Français</span>
+                            </div>
+                            <div class="custom-select-options" id="custom-select-options">
+                                <div class="custom-select-option" data-value="FR" data-img="https://flagcdn.com/fr.svg"><img src="https://flagcdn.com/fr.svg"> Français</div>
+                                <div class="custom-select-option" data-value="EN" data-img="https://flagcdn.com/gb.svg"><img src="https://flagcdn.com/gb.svg"> English</div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <nav class="zurf-navigation" style="float: right; margin-top: 20px;">
-                        <ul class="sf-menu">
-                            <li><a href="index.html">Accueil</a></li>
-                            <li>
-                                <a href="#">Découverte</a>
-                                <ul class="sub-menu">
-                                    <li><a href="bapteme.html">Baptême</a></li>
-                                    <li><a href="initiation.html">Initiation</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Formation</a>
-                                <ul class="sub-menu">
-                                    <li><a href="formation-n1.html">Niveau 1</a></li>
-                                    <li><a href="formation-n2.html">Niveau 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
+                    <div class="zurf-top-bar-right zurf-item-pdlr">
+                        <div class="zurf-top-bar-right-text">
+                            <i class="fa5s fa5-phone"></i> 06.84.57.59.76
+                            <i class="fa5s fa5-envelope-open" style="margin-left: 20px;"></i> contact@immersion-malouine.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <header class="zurf-header-wrap zurf-header-style-plain zurf-sticky-navigation">
+                <div class="zurf-header-container zurf-container clearfix">
+                    <div class="zurf-logo zurf-item-pdlr">
+                        <a href="index.html"><img src="images/logov1.png" alt="Logo" width="120"></a>
+                    </div>
+                    <div class="zurf-navigation zurf-item-pdlr clearfix">
+                        <div class="zurf-main-menu" id="zurf-main-menu">
+                            <ul id="menu-main-navigation" class="sf-menu">
+                                <li class="menu-item"><a href="index.html">Accueil</a></li>
+                                <li class="menu-item menu-item-has-children"><a href="#">Découverte</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="bapteme.html">Baptême</a></li>
+                                        <li><a href="initiation.html">Initiation</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="#">Formations</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="n1.html">Niveau 1</a></li>
+                                        <li><a href="n2.html">Niveau 2</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item"><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="zurf-main-menu-right-wrap clearfix">
+                            <a class="zurf-main-menu-right-button zurf-button-1" href="reservation.html">Réservation</a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
             <main>
-                <section class="hero-mini">
-                    <div class="zurf-container">
-                        <h1 style="font-size: 50px; font-weight: 700;">Le Baptême de Plongée</h1>
-                        <p style="font-size: 20px;">Votre première respiration sous l'eau à Saint-Malo</p>
+                <div class="gdlr-core-pbf-wrapper" style="padding: 200px 0px 100px 0px;">
+                    <div class="gdlr-core-pbf-background-wrap" style="background-color: #0a0a0a;">
+                        <div class="gdlr-core-pbf-background" style="opacity: 0.6; background-image: url(images/plongee-tek.jpg); background-size: cover; background-position: center;"></div>
                     </div>
-                </section>
-
-                <section style="padding: 80px 0;">
-                    <div class="zurf-container">
-                        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
-                            <div style="flex: 2; min-width: 300px;">
-                                <h2>Une expérience inoubliable</h2>
-                                <p>Accessible à tous dès 8 ans, le baptême est la première étape pour découvrir la beauté des fonds marins. Accompagné individuellement par un moniteur diplômé d'État, vous évoluerez en toute sécurité entre 0 et 6 mètres de profondeur.</p>
-                                <p>Nous vous fournissons tout l'équipement nécessaire : combinaison, palmes, masque et bouteille.</p>
-                                
-                                <h3 style="margin-top: 30px;">Infos pratiques</h3>
-                                <ul>
-                                    <li>Durée de l'activité : environ 2h30</li>
-                                    <li>Temps sous l'eau : 20 à 30 minutes</li>
-                                    <li>Aucun certificat médical requis pour le baptême</li>
-                                </ul>
-                            </div>
-                            <div style="flex: 1; min-width: 250px; background: #f8f8f8; padding: 30px; border-radius: 10px;">
-                                <h4 style="color: #2c7b8d;">Tarif : 85€</h4>
-                                <p>Inclus : moniteur privé, équipement complet et diplôme souvenir.</p>
-                                <a href="contact.html" style="background: #2c7b8d; color: white; padding: 15px; display: block; text-align: center; text-decoration: none; font-weight: bold; border-radius: 5px;">RÉSERVER MON BAPTÊME</a>
-                            </div>
+                    <div class="gdlr-core-container">
+                        <div class="gdlr-core-title-item gdlr-core-center-align">
+                            <h1 class="gdlr-core-title-item-title" style="font-size: 65px; color: white; text-transform: uppercase;">Baptême de Plongée</h1>
+                            <div class="gdlr-core-title-item-caption" style="color: #2c7b8d; font-size: 20px;">Une première immersion magique à Saint-Malo</div>
                         </div>
                     </div>
-                </section>
-            </main>
+                </div>
 
-            <footer style="background: #0d1b2a; color: #fff; padding: 40px 0; text-align: center;">
-                <p>Copyright © 2026 Immersion Malouine.</p>
-            </footer>
+                <div class="zurf-content-container zurf-container" style="padding-top: 70px;">
+                    <div class="zurf-content-area">
+                        <article class="zurf-single-article">
+                            <div class="zurf-single-article-content">
+                                <p><strong>Découvrez la plongée sous-marine à Saint-Malo</strong>, une expérience inoubliable pour explorer les fonds marins de la Côte d'Émeraude. Accompagné d'un moniteur professionnel, vous ferez vos premières bulles en toute sécurité dans un environnement exceptionnel.</p>
+                                
+                                <blockquote class="wp-block-quote">
+                                    <p><em>"La mer, une fois qu'elle a jeté son sort, vous retient dans son filet de merveilles pour toujours."</em></p>
+                                </blockquote>
+
+                                <div class="gdlr-core-space-shortcode" style="margin-top: 40px;"></div>
+                                
+                                <h4 class="wp-block-heading">Informations pratiques</h4>
+                                <ul class="list-no-left wp-block-list">
+                                    <li><strong>Durée :</strong> Environ 2h30 (dont 20-30 min sous l'eau)</li>
+                                    <li><strong>Âge minimum :</strong> 8 ans</li>
+                                    <li><strong>Équipement :</strong> Tout le matériel est fourni par le centre</li>
+                                    <li><strong>Santé :</strong> Pas besoin de certificat médical pour un premier baptême</li>
+                                </ul>
+
+                                <div class="gdlr-core-space-shortcode" style="margin-top: 40px;"></div>
+                                
+                                <p>Lors de votre baptême, vous apprendrez à respirer avec un détendeur et à vous déplacer avec des palmes. C'est une étape idéale avant de se lancer dans une formation plus complète comme le Niveau 1.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
+    <script>
+        // JS pour le sélecteur de langue
+        const trigger = document.getElementById('custom-select-trigger');
+        const options = document.getElementById('custom-select-options');
+        
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.querySelectorAll('.custom-select-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const img = option.getAttribute('data-img');
+                const label = option.textContent;
+                trigger.innerHTML = `<img src="${img}" alt="flag"> <span>${label}</span>`;
+                options.style.display = 'none';
+            });
+        });
+
+        document.addEventListener('click', () => options.style.display = 'none');
+    </script>
 </body>
 </html>
