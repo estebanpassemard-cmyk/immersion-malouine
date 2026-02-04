@@ -3,50 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Immersion Malouine | Accueil</title>
+    <title>Immersion Malouine | Plongée Saint-Malo</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@300;400;700;900&display=swap">
-    
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style-core.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/zurf-style-custom.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Merriweather:wght@300;400;700&display=swap">
 
     <style>
-        /* CSS POUR ACTIVER LE MENU DÉROULANT SANS JAVASCRIPT COMPLEXE */
-        .sf-menu li { position: relative; float: left; }
-        .sf-menu li ul.sub-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #0d1b2a;
-            min-width: 200px;
-            z-index: 999;
+        /* Rétablir le comportement du menu original sur GitHub */
+        .sf-menu > li > a { color: #fff !important; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; font-weight: 700; }
+        .sf-menu ul.sub-menu { 
+            display: none; 
+            position: absolute; 
+            background: rgba(13, 27, 42, 0.95); 
+            padding: 15px 0; 
+            min-width: 200px; 
             list-style: none;
-            padding: 10px 0;
-            margin: 0;
+            top: 100%;
+            border-top: 3px solid #2c7b8d;
         }
         .sf-menu li:hover > ul.sub-menu { display: block; }
-        .sf-menu li ul.sub-menu li { width: 100%; }
-        .sf-menu li ul.sub-menu li a {
-            padding: 10px 20px;
+        .sf-menu ul.sub-menu li a { 
+            color: #fff !important; 
+            padding: 10px 25px !important; 
+            font-size: 13px !important; 
             display: block;
-            color: white !important;
-            font-size: 13px;
+            text-transform: none;
         }
-        .sf-menu li ul.sub-menu li a:hover { background: #2c7b8d; }
-        
-        /* Correction Header */
-        .zurf-logo { padding-top: 15px !important; }
-        .zurf-navigation { padding-top: 25px !important; }
+        .sf-menu ul.sub-menu li a:hover { background: #2c7b8d; }
+        .zurf-logo img { max-width: 180px; }
+        .zurf-navigation { padding-top: 30px !important; }
     </style>
 </head>
 
-<body class="home page-template-default page zurf-body zurf-full zurf-with-sticky-navigation">
-
+<body class="home page-template-default page gdlr-core-body zurf-body zurf-full zurf-with-sticky-navigation">
     <div class="zurf-body-outer-wrapper">
         <div class="zurf-body-wrapper clearfix zurf-with-transparent-header">
             
@@ -54,13 +46,11 @@
                 <div class="zurf-header-background"></div>
                 <div class="zurf-header-container zurf-container">
                     <div class="zurf-header-container-inner clearfix">
-                        
                         <div class="zurf-logo zurf-item-pdlr">
-                            <a href="index.html"><img src="images/logov1.png" alt="Logo" width="150"></a>
+                            <a href="index.html"><img src="images/logov1.png" alt="Logo"></a>
                         </div>
-
                         <div class="zurf-navigation zurf-item-pdlr clearfix">
-                            <div class="zurf-main-menu">
+                            <div class="zurf-main-menu" id="zurf-main-menu">
                                 <ul id="menu-main-navigation" class="sf-menu">
                                     <li class="menu-item"><a href="index.html">Accueil</a></li>
                                     
@@ -68,7 +58,7 @@
                                         <a href="#">Découverte</a>
                                         <ul class="sub-menu">
                                             <li><a href="bapteme.html">Baptême</a></li>
-                                            <li><a href="initiation.html">Initiation</a></li>
+                                            <li><a href="initiation.html">Pack Initiation</a></li>
                                         </ul>
                                     </li>
 
@@ -78,48 +68,68 @@
                                             <li><a href="formation-n1.html">Niveau 1</a></li>
                                             <li><a href="formation-n2.html">Niveau 2</a></li>
                                             <li><a href="formation-n3.html">Niveau 3</a></li>
+                                            <li><a href="formation-n4.html">Niveau 4 (Guide de palanquée)</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="menu-item menu-item-has-children">
                                         <a href="#">Exploration</a>
                                         <ul class="sub-menu">
-                                            <li><a href="autonome.html">Autonome</a></li>
-                                            <li><a href="encadre.html">Encadré</a></li>
+                                            <li><a href="autonome.html">Plongée Autonome</a></li>
+                                            <li><a href="encadre.html">Plongée Encadrée</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="menu-item"><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
-                            
                             <div class="zurf-main-menu-right-wrap clearfix">
-                                <a class="zurf-main-menu-right-button zurf-button-1" href="contact.html" style="background:#2c7b8d; color:white; padding:10px 20px; border-radius:5px; margin-left:20px;">Réservation</a>
+                                <a class="zurf-main-menu-right-button zurf-button-1" href="contact.html">Réserver</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <main>
-                <div class="gdlr-core-pbf-wrapper" style="padding: 250px 0px 200px 0px;">
+            <main class="zurf-page-wrapper">
+                <div class="gdlr-core-pbf-wrapper" style="padding: 260px 0px 200px 0px;">
                     <div class="gdlr-core-pbf-background-wrap">
-                        <div class="gdlr-core-pbf-background" style="background-image: url('images/scuba-hero-bg.jpg'); background-size: cover; background-position: center; background-color: #000;"></div>
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);"></div>
+                        <div class="gdlr-core-pbf-background gdlr-core-parallax" style="background-image: url(images/scuba-hero-bg.jpg); background-size: cover; background-position: center;"></div>
+                        <div class="gdlr-core-pbf-background-mask" style="background: rgba(0,0,0,0.3);"></div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper-content" style="text-align: center; position: relative; z-index: 5;">
-                        <h1 style="font-size: 75px; color: #fff; font-weight: 700;">Immersion Malouine</h1>
-                        <p style="font-size: 25px; color: #fff;">Plongée sous-marine à Saint-Malo</p>
-                        <div style="margin-top: 40px;">
-                            <a href="bapteme.html" style="background:#2c7b8d; color:white; padding:20px 40px; border-radius:5px; font-weight:bold; text-decoration:none; margin:10px; display:inline-block;">DÉCOUVRIR LE BAPTÊME</a>
+                    <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
+                        <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                            <div class="gdlr-core-pbf-element">
+                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align" style="padding-bottom: 20px;">
+                                    <div class="gdlr-core-title-item-title-wrap">
+                                        <h1 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 80px; color: #ffffff; letter-spacing: 3px; text-transform: uppercase;">Immersion Malouine</h1>
+                                    </div>
+                                    <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 24px; color: #ffffff; margin-top: 15px;">ÉCOLE DE PLONGÉE À SAINT-MALO</span>
+                                </div>
+                            </div>
+                            <div class="gdlr-core-pbf-element">
+                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
+                                    <a class="gdlr-core-button gdlr-core-button-gradient gdlr-core-button-no-border" href="bapteme.html" style="padding: 20px 40px; font-size: 16px; border-radius: 5px;">
+                                        <span class="gdlr-core-content">DÉCOUVRIR LE BAPTÊME</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </main>
 
+            <footer class="zurf-footer-wrapper">
+                <div class="zurf-container">
+                    <div class="zurf-footer-column zurf-item-pdlr">
+                        <p>Copyright © 2026 Immersion Malouine. Tous droits réservés.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 
     <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate.min.js"></script>
 </body>
 </html>
