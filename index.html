@@ -29,36 +29,40 @@
         [class^="fa-"], [class*=" fa-"] {
             font-family: FontAwesome !important;
         }
-    </style>
 <style>
-    /* CORRECTIF DE MISE EN PAGE EXPRESS */
-    .gdlr-core-pbf-wrapper { padding: 80px 0 !important; max-width: 1200px; margin: 0 auto; }
-    .gdlr-core-pbf-column-container { display: flex; flex-wrap: wrap; justify-content: space-between; }
-    
-    /* Pour les 3 colonnes de services (Baptême, Formation, Exploration) */
-    .gdlr-core-column-20 { width: 31%; margin-bottom: 30px; text-align: center; }
-    
-    /* Pour les 2 colonnes (À propos) */
-    .gdlr-core-column-30 { width: 48%; }
-    
-    /* Menu et Logo */
-    .zurf-navigation { float: right; }
-    .zurf-main-menu li { display: inline-block; margin-left: 20px; }
-    .zurf-main-menu li a { text-decoration: none; color: #333; font-weight: 600; }
-    
-    /* Images */
-    img { max-width: 100%; height: auto; }
-    
-    /* Footer en colonnes */
-    footer .zurf-container { display: flex; justify-content: space-between; flex-wrap: wrap; }
-    .zurf-footer-column { width: 23%; }
+    /* 1. MISE EN PAGE GLOBALE ET ICÔNES */
+    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; color: #555; }
+    .zurf-container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+    [class^="fa-"], [class*=" fa-"] { font-family: FontAwesome !important; }
 
-    /* Forcer le design Pro */
-    body { font-family: 'Poppins', sans-serif; color: #555; line-height: 1.6; }
-    h3 { color: #1e1e1e; margin-bottom: 20px; }
-    
-    /* Style des icônes de services */
-    .gdlr-core-column-service-content img { width: 60px; margin-bottom: 20px; }
+    /* 2. FIX DU HEADER (LOGO À GAUCHE, MENU À DROITE) */
+    .zurf-header-container-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        background-color: #ffffff;
+    }
+
+    /* 3. STYLE DU MENU */
+    .zurf-main-menu ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    .zurf-main-menu li { margin-left: 25px; }
+    .zurf-main-menu li a { 
+        text-decoration: none; 
+        color: #1e1e1e !important; 
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+    .zurf-main-menu li a:hover { color: #00a3da !important; }
+
+    /* 4. ALIGNEMENT DES COLONNES DU SITE */
+    .gdlr-core-pbf-column-container { display: flex; flex-wrap: wrap; }
+    .gdlr-core-column-20 { width: 33.33%; padding: 15px; box-sizing: border-box; }
+    .gdlr-core-column-30 { width: 50%; padding: 15px; box-sizing: border-box; }
+
+    /* 5. FIX IMAGES */
+    img { max-width: 100%; height: auto; }
 </style>
 </head>
 <body class="home page-template-default page gdlr-core-body zurf-body zurf-body-front zurf-full-layout-wrapper zurf-with-transparent-header zurf-with-frame">
@@ -393,6 +397,7 @@
     <script type="text/javascript" src="js/page-builder.js"></script>
 </body>
 </html>
+
 
 
 
