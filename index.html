@@ -14,65 +14,75 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C300%2C400%2C500%2C600%2C700%7CMontserrat%3A100%2C300%2C400%2C500%2C600%2C700&display=swap' type='text/css' media='all' />
 
     <style>
-        /* CSS CORRECTIF POUR COPIER LE DESIGN DE RÉFÉRENCE */
-        body { font-family: 'Poppins', sans-serif !important; }
-        
-        /* Header Fixe et propre */
-        .custom-header {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            padding: 20px 60px !important;
-            background-color: #ffffff !important; /* On le met blanc pour l'instant pour plus de clarté */
-            position: relative;
-            z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    /* 1. POLICE ET BASE */
+    body { font-family: 'Poppins', sans-serif !important; margin: 0; padding: 0; }
 
-        .custom-logo img {
-            max-width: 180px;
-            height: auto;
-        }
+    /* 2. HEADER TRANSPARENT (Comme la référence) */
+    .custom-header {
+        position: absolute !important; /* Pour être au-dessus de l'image */
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 30px 60px !important;
+        box-sizing: border-box;
+        z-index: 9999;
+        background: transparent !important; /* Transparent au début */
+    }
 
-        .custom-nav ul {
-            display: flex !important;
-            list-style: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
+    .custom-nav ul {
+        display: flex !important;
+        list-style: none !important;
+        margin: 0 !important;
+    }
 
-        .custom-nav li {
-            margin-left: 30px !important;
-        }
+    .custom-nav li { margin-left: 35px !important; }
 
-        .custom-nav li a {
-            text-decoration: none !important;
-            color: #1e1e1e !important;
-            font-weight: 700 !important;
-            font-size: 14px !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
+    .custom-nav li a {
+        text-decoration: none !important;
+        color: #ffffff !important; /* Texte BLANC sur l'image bleue */
+        font-weight: 700 !important;
+        font-size: 14px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px;
+    }
 
-        .custom-nav li a:hover {
-            color: #00a3da !important;
-        }
+    .custom-nav li a:hover { color: #00a3da !important; }
 
-        /* Alignement des blocs du corps de page (colonnes) */
-        .gdlr-core-pbf-column-container {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            max-width: 1200px;
-            margin: 0 auto !important;
-        }
+    /* 3. FIX DE LA SECTION HERO (L'image de fond) */
+    #gdlr-core-wrapper-1 {
+        background-image: url('images/scuba-hero.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        padding-top: 350px !important; /* Pour laisser de la place au menu */
+        padding-bottom: 200px !important;
+        margin-top: 0 !important;
+    }
 
-        .gdlr-core-column-20 { width: 33.33% !important; padding: 10px; box-sizing: border-box; }
-        .gdlr-core-column-30 { width: 50% !important; padding: 10px; box-sizing: border-box; }
-        
-        /* Correction icônes */
-        [class^="fa-"], [class*=" fa-"] { font-family: FontAwesome !important; }
-    </style>
+    /* 4. ALIGNEMENT DES COLONNES (Baptême, Formation, Exploration) */
+    .gdlr-core-pbf-column-container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+    }
+
+    .gdlr-core-column-20 { 
+        width: 33.33% !important; 
+        padding: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 5. TITRES ET TEXTES */
+    h3, .gdlr-core-title-item-title {
+        color: #1e1e1e !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+    }
+</style>
 </head>
 <body class="home page-template-default page zurf-body zurf-body-front zurf-full-bg">
 
@@ -404,6 +414,7 @@
     <script type="text/javascript" src="js/page-builder.js"></script>
 </body>
 </html>
+
 
 
 
